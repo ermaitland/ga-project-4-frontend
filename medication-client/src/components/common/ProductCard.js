@@ -33,8 +33,7 @@ export default function ProductCard({
   side_effects,
   drive,
   food,
-  primary_use,
-  about
+  primary_use
 }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -42,18 +41,15 @@ export default function ProductCard({
     setExpanded(!expanded);
   };
 
+  console.log({ drive }, { food });
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader title={name} subheader={brand} />
       <CardMedia component='img' height='194' image={image} alt={name} />
       <CardContent>
         <Typography variant='body2' color='text.secondary'>
-          Category: {category}
-          Dose: {dose}
-          Interactions: {interactions}
-          Side Effects: {side_effects}I can drive on this: {drive}I need to take
-          this with food: {food}
-          Used for: {primary_use}
+          Find out more
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -68,8 +64,16 @@ export default function ProductCard({
       </CardActions>
       <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
-          <Typography paragraph>About {name}</Typography>
-          <Typography paragraph>{about}</Typography>
+          <Typography paragraph>Basic info on: {name}</Typography>
+          <Typography> Category: {category}</Typography>
+          <Typography display='block'>Dose: {dose}</Typography>
+          <Typography display='block'>Interactions: {interactions}</Typography>
+          <Typography display='block'>Side Effects: {side_effects}</Typography>
+          <Typography display='block'>I can drive on this: {drive}</Typography>
+          <Typography display='block'>
+            I need to take this with food: {food}
+          </Typography>
+          <Typography display='block'>Used for: {primary_use}</Typography>
         </CardContent>
       </Collapse>
     </Card>

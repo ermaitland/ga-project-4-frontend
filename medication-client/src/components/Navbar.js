@@ -105,6 +105,17 @@ export default function Navbar() {
           <Typography variant='h6' noWrap component='div'>
             Do You Know Your Meds?
           </Typography>
+          {isLoggedIn && (
+            <List>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <Link to='/' onClick={logout}>
+                    <ListItemText>Logout</ListItemText>
+                  </Link>
+                </ListItemButton>
+              </ListItem>
+            </List>
+          )}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -155,31 +166,58 @@ export default function Navbar() {
         </List>
         <Divider />
         <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to='/register'>
-                <ListItemText>Register</ListItemText>
-              </Link>
-            </ListItemButton>
-          </ListItem>
-        </List>
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to='/login'>
-                <ListItemText>Login</ListItemText>
-              </Link>
-            </ListItemButton>
-          </ListItem>
-        </List>
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to='/' onClick={logout}>
-                <ListItemText>Logout</ListItemText>
-              </Link>
-            </ListItemButton>
-          </ListItem>
+          {isLoggedIn ? (
+            <>
+              {' '}
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <Link to='/requests'>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <InboxIcon />
+                      </ListItemIcon>
+                      <ListItemText>Requests</ListItemText>
+                    </ListItemButton>
+                  </Link>
+                </ListItemButton>
+              </ListItem>{' '}
+            </>
+          ) : (
+            <>
+              <List>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <Link to='/register'>
+                      <ListItemText>Register</ListItemText>
+                    </Link>
+                  </ListItemButton>
+                </ListItem>
+              </List>
+              <List>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <Link to='/login'>
+                      <ListItemText>Login</ListItemText>
+                    </Link>
+                  </ListItemButton>
+                </ListItem>
+              </List>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <Link to='/newRequest'>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <MailIcon />
+                      </ListItemIcon>
+                      <ListItemText>
+                        See something not right? Send up a request to change
+                      </ListItemText>
+                    </ListItemButton>
+                  </Link>
+                </ListItemButton>
+              </ListItem>
+            </>
+          )}
         </List>
       </Drawer>
       <Main open={open}>

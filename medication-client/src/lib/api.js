@@ -6,7 +6,7 @@ const ENDPOINTS = {
   getAllBrands: 'api/brands/',
   login: 'api/auth/login/',
   register: 'api/auth/register/',
-  getAllRequests: 'api/requests/'
+  allRequests: 'api/requests/'
 };
 
 const getHeaders = () => ({

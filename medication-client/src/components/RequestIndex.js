@@ -7,7 +7,7 @@ export default function RequestIndex() {
   const [requests, setRequests] = useState(null);
 
   useEffect(() => {
-    API.GET(API.ENDPOINTS.getAllRequests)
+    API.GET(API.ENDPOINTS.allRequests)
       .then(({ data }) => {
         console.log(data);
         setRequests(data);
@@ -19,7 +19,11 @@ export default function RequestIndex() {
     <section>
       <Container>
         {requests?.map((request) => (
-          <RequestCard product={request?.products?.name} text={request?.text} />
+          <RequestCard
+            key={request.id}
+            product={request?.products?.name}
+            text={request?.text}
+          />
         ))}
       </Container>
     </section>

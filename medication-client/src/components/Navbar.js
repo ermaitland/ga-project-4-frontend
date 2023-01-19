@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -18,7 +17,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { AUTH } from '../lib/auth';
+import { useAuthenticated } from '../hooks/useAuthenticated';
 
 const drawerWidth = 240;
 
@@ -62,14 +64,15 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end'
 }));
 
 export default function Navbar() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useAuthenticated();
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -77,6 +80,12 @@ export default function Navbar() {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const logout = () => {
+    AUTH.logout();
+    setIsLoggedIn(false);
+    navigate('/');
   };
 
   return (
@@ -148,8 +157,27 @@ export default function Navbar() {
         <List>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon></ListItemIcon>
-              <ListItemText />
+              <Link to='/register'>
+                <ListItemText>Register</ListItemText>
+              </Link>
+            </ListItemButton>
+          </ListItem>
+        </List>
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <Link to='/login'>
+                <ListItemText>Login</ListItemText>
+              </Link>
+            </ListItemButton>
+          </ListItem>
+        </List>
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <Link to='/' onClick={logout}>
+                <ListItemText>Logout</ListItemText>
+              </Link>
             </ListItemButton>
           </ListItem>
         </List>

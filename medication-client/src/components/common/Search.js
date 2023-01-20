@@ -16,7 +16,7 @@ export default function Search() {
   }, []);
 
   useEffect(() => {
-    API.GET(API.ENDPOINTS.search)
+    API.GET(API.ENDPOINTS.search(query))
       .then(({ data }) => {
         if (query) {
           setFilteredProducts(data);

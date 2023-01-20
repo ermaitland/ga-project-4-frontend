@@ -9,7 +9,7 @@ const ENDPOINTS = {
   login: '/api/auth/login/',
   register: '/api/auth/register/',
   allRequests: '/api/requests/',
-  search: `api/products/search/`
+  search: (query) => `api/products/search/?search=${query}`
 };
 
 const getHeaders = () => ({

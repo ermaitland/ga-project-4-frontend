@@ -5,7 +5,7 @@ import { Container, Grid, Box } from '@mui/material';
 import Search from './common/Search';
 
 export default function ProductIndex() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     API.GET(API.ENDPOINTS.getAllProducts)

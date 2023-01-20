@@ -180,18 +180,6 @@ export default function Navbar() {
                     </ListItemButton>
                   </Link>
                 </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <Link to='/requests'>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <InboxIcon />
-                      </ListItemIcon>
-                      <ListItemText>Requests</ListItemText>
-                    </ListItemButton>
-                  </Link>
-                </ListItemButton>
               </ListItem>{' '}
             </>
           ) : (
@@ -230,7 +218,21 @@ export default function Navbar() {
               </ListItem>
             </>
           )}
-        </List>
+        </List>{' '}
+        {AUTH.isSuperuser() && (
+          <ListItem disablePadding>
+            <ListItemButton>
+              <Link to='/requests'>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText>Requests</ListItemText>
+                </ListItemButton>
+              </Link>
+            </ListItemButton>
+          </ListItem>
+        )}
       </Drawer>
       <Main open={open}>
         <DrawerHeader />

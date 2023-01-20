@@ -26,7 +26,10 @@ const getPayload = () => {
 };
 
 const isOwner = (objectId) => objectId === getPayload().userId;
-const isSuperuser = () => getPayload().is_superuser;
+const isSuperuser = () => {
+  console.log(getPayload().is_staff);
+  return getPayload().is_staff;
+};
 
 export const AUTH = {
   setToken,

@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   TextField,
   Container,
   Box,
   Button,
   FormControl,
-  MenuItem,
   InputLabel,
   Select,
-  Switch,
-  Typography
+  MenuItem,
+  Typography,
+  Switch
 } from '@mui/material';
 import { API } from '../lib/api';
-import { useNavigate } from 'react-router-dom';
 
 let emptyForm = {
   name: '',
@@ -28,27 +28,17 @@ let emptyForm = {
   primary_use: '',
   about: ''
 };
-export default function CreateProduct() {
+
+export default function EditProduct() {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [formData, setFormData] = useState(emptyForm);
+  const [productData, setProductData] = useState([]);
+  const [error, setError] = useState(false);
   const [avalibleBrand, setAvalibleBrand] = useState([]);
   const [avalibleCategory, setAvalibleCategory] = useState([]);
   const [checkedOne, setCheckedOne] = useState(true);
   const [checkedTwo, setCheckedTwo] = useState(true);
-
-  useEffect(() => {
-    API.GET(API.ENDPOINTS.getAllBrands)
-      .then(({ data }) => setAvalibleBrand(data))
-      .catch((e) => console.log(e));
-  }, []);
-
-  useEffect(() => {
-    API.GET(API.ENDPOINTS.allCategories)
-      .then(({ data }) => setAvalibleCategory(data))
-      .catch((e) => console.log(e));
-  }, []);
-
-  const [error, setError] = useState(false);
 
   const handleChangeOne = (e) => {
     setCheckedOne(e.target.checked);
@@ -67,21 +57,46 @@ export default function CreateProduct() {
     }
   };
 
-  const handleFormChange = (e) => {
+  useEffect(() => {
+    API.GET(API.ENDPOINTS.getSingleProduct(id))
+      .then(({ data }) => {
+        setProductData(data);
+        setFormData(data);
+      })
+      .catch((e) => console.log(e));
+  }, [id]);
+
+  useEffect(() => {
+    API.GET(API.ENDPOINTS.getAllBrands)
+      .then(({ data }) => setAvalibleBrand(data))
+      .catch((e) => console.log(e));
+  }, []);
+
+  useEffect(() => {
+    API.GET(API.ENDPOINTS.allCategories)
+      .then(({ data }) => setAvalibleCategory(data))
+      .catch((e) => console.log(e));
+  }, []);
+
+  const handleFormChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
-    API.POST(API.ENDPOINTS.getAllProducts, formData, API.getHeaders())
+    e.preventDefault();
+    API.PUT(API.ENDPOINTS.getSingleProduct(id), formData, API.getHeaders())
       .then(({ data }) => {
-        console.log(data);
-        navigate('/products');
+        setFormData(data);
+        console.log(productData);
+        navigate(`/products/${id}`);
       })
       .catch((e) => {
-        setError(true);
+        if (e.status === 301) {
+          setError(true);
+        }
         console.log(e);
       });
   };
+
   return (
     <>
       <Container

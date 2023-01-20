@@ -180,6 +180,18 @@ export default function Navbar() {
                     </ListItemButton>
                   </Link>
                 </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <Link to='/brands/create'>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <InboxIcon />
+                      </ListItemIcon>
+                      <ListItemText>Add a Brand</ListItemText>
+                    </ListItemButton>
+                  </Link>
+                </ListItemButton>
               </ListItem>{' '}
             </>
           ) : (

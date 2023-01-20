@@ -1,8 +1,11 @@
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-export default function BrandCard({ image, name }) {
+export default function BrandCard({ image, name, id }) {
+  const navigate = useNavigate();
+  const navigateToBrand = () => navigate(`/brands/${id}`);
   return (
-    <Card sx={{ display: 'flex', width: 400 }}>
+    <Card sx={{ display: 'flex', width: 400 }} onClick={navigateToBrand}>
       <Box
         sx={{
           display: 'flex',

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { API } from '../lib/api';
-import { useAuthenticated } from '../hooks/useAuthenticated';
+// import { useAuthenticated } from '../hooks/useAuthenticated';
 import { AUTH } from '../lib/auth';
 import {
   Container,
@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 export default function Product() {
-  const [isLoggedIn] = useAuthenticated();
+  // const [isLoggedIn] = useAuthenticated();
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState(null);
   const navigate = useNavigate();
@@ -124,6 +124,9 @@ export default function Product() {
               More Medications
             </Button>
           </CardActions>
+          {AUTH.isSuperuser() && (
+            <Link to={`/editProducts/${id}`}>Edit Product</Link>
+          )}
         </Box>
       </Container>
       <Container maxWidth='lg'>

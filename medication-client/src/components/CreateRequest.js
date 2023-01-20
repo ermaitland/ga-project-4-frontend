@@ -32,7 +32,7 @@ export default function CreateRequest() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    API.POST(API.ENDPOINTS.allRequests, data)
+    API.POST(API.ENDPOINTS.createRequest, data)
       .then(({ data }) => {
         navigate('/products');
       })

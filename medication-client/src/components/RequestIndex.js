@@ -7,7 +7,7 @@ export default function RequestIndex() {
   const [requests, setRequests] = useState(null);
 
   useEffect(() => {
-    API.GET(API.ENDPOINTS.allRequests)
+    API.POST(API.ENDPOINTS.allRequests, {}, API.getHeaders())
       .then(({ data }) => {
         console.log(data);
         setRequests(data);

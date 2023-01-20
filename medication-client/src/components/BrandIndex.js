@@ -15,7 +15,12 @@ export default function BrandIndex() {
   return (
     <Container>
       {brands?.map((brand) => (
-        <BrandCard key={brand.id} name={brand.name} image={brand.image} />
+        <BrandCard
+          key={brand.id}
+          id={brand.id}
+          name={brand.name}
+          image={brand.image}
+        />
       ))}
     </Container>
   );

@@ -171,6 +171,18 @@ export default function Navbar() {
               {' '}
               <ListItem disablePadding>
                 <ListItemButton>
+                  <Link to='/products/create'>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <InboxIcon />
+                      </ListItemIcon>
+                      <ListItemText>Add a Product</ListItemText>
+                    </ListItemButton>
+                  </Link>
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
                   <Link to='/requests'>
                     <ListItemButton>
                       <ListItemIcon>

@@ -61,6 +61,7 @@ export default function CreateRequest() {
                   label='Products'
                   name='products'
                   onChange={handleChange}
+                  required={true}
                 >
                   <MenuItem value=''>None</MenuItem>
                   {products.map((product) => (

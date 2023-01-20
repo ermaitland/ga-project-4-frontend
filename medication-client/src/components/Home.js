@@ -5,7 +5,7 @@ import { Box } from '@mui/system';
 export default function Home() {
   return (
     <section className='Home'>
-      <Box sx={{ pt: 50, color: 'white' }}>
+      <Box sx={{ pt: 50, color: 'black' }}>
         <Typewriter
           onInit={(typewriter) => {
             typewriter
@@ -13,7 +13,7 @@ export default function Home() {
               .callFunction(() => {
                 console.log('String typed out!');
               })
-              .pauseFor(2500)
+              .pauseFor(1500)
               .typeString('do you know your drugs? ')
               .callFunction(() => {
                 console.log('String typed out!');
@@ -22,6 +22,11 @@ export default function Home() {
               .deleteAll()
               .callFunction(() => {
                 console.log('All strings were deleted');
+              })
+              .pauseFor(1000)
+              .typeString("Check'em")
+              .callFunction(() => {
+                console.log('String typed out!');
               })
               .start();
           }}

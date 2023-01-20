@@ -2,11 +2,14 @@ import axios from 'axios';
 import { AUTH } from './auth';
 
 const ENDPOINTS = {
-  getAllProducts: 'api/products/',
-  getAllBrands: 'api/brands/',
-  login: 'api/auth/login/',
-  register: 'api/auth/register/',
-  allRequests: 'api/requests/'
+  getAllProducts: '/api/products/',
+  getSingleProduct: (id) => `/api/products/${id}/`,
+  allCategories: '/api/category/',
+  getAllBrands: '/api/brands/',
+  login: '/api/auth/login/',
+  register: '/api/auth/register/',
+  allRequests: '/api/requests/',
+  search: `api/products/search/`
 };
 
 const getHeaders = () => ({

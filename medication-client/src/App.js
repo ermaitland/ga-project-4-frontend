@@ -7,6 +7,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import RequestIndex from './components/RequestIndex';
 import CreateRequest from './components/CreateRequest';
+import Product from './components/Product';
+import CreateProduct from './components/CreateProduct';
 
 window.Buffer = window.Buffer || require('buffer').Buffer;
 
@@ -17,6 +19,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<ProductIndex />} />
+        <Route path='/products/create' element={<CreateProduct />} />
+        <Route path='/products/:id' element={<Product />} />
         <Route path='/brands' element={<BrandIndex />} />
         <Route path='/requests' element={<RequestIndex />} />
         <Route path='/newRequest' element={<CreateRequest />} />

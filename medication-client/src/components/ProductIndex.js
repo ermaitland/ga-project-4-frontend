@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { API } from '../lib/api';
 import ProductCard from './common/ProductCard';
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Box } from '@mui/material';
+import Search from './common/Search';
 
 export default function ProductIndex() {
   const [products, setProducts] = useState();
@@ -14,6 +15,9 @@ export default function ProductIndex() {
 
   return (
     <section className='ProductIndex'>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+        <Search />
+      </Box>
       <Container maxwith='lg' sx={{ display: 'flex', flexDirection: 'column' }}>
         <Container
           maxwith='lg'
@@ -23,17 +27,18 @@ export default function ProductIndex() {
             <Grid item xs={12} sm={12} md={8}>
               <Grid container spacing={2}>
                 {products?.map((product) => (
-                  <Grid item sm={12} md={4} key={product._id}>
+                  <Grid item sm={12} md={4} key={product.id}>
                     <ProductCard
                       key={product.id}
+                      id={product.id}
                       name={product.name}
                       brand={product.brand.name}
                       image={product.image}
                       dose={product.dose}
-                      category={product.category.name}
-                      interactions={product.interactions}
+                      // category={product.category.name}
+                      // interactions={product.interactions}
                       side_effects={product.side_effects}
-                      drive={product?.drive.toString()}
+                      // drive={product?.drive.toString()}
                       food={product?.food.toString()}
                       primary_use={product.primary_use}
                       about={product.about}

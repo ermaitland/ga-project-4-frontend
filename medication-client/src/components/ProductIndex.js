@@ -13,6 +13,10 @@ export default function ProductIndex() {
       .catch(({ message, responce }) => console.log(message, responce));
   }, []);
 
+  // useEffect(() => {
+  //   setProducts(searchProducts);
+  // }, [searchProducts]);
+
   return (
     <section className='ProductIndex'>
       <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>

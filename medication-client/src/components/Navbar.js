@@ -17,6 +17,14 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import HomeIcon from '@mui/icons-material/Home';
+import MedicationIcon from '@mui/icons-material/Medication';
+import FactoryIcon from '@mui/icons-material/Factory';
+import PolicyIcon from '@mui/icons-material/Policy';
+import AddIcon from '@mui/icons-material/Add';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { AUTH } from '../lib/auth';
@@ -107,10 +115,13 @@ export default function Navbar() {
           </Typography>
           {isLoggedIn && (
             <List>
-              <ListItem disablePadding>
+              <ListItem>
                 <ListItemButton>
+                  <ListItemIcon>
+                    <LogoutIcon sx={{ pr: 0 }} />
+                  </ListItemIcon>
                   <Link to='/' onClick={logout}>
-                    <ListItemText>Logout</ListItemText>
+                    <ListItemText sx={{ pl: 0 }}>Logout</ListItemText>
                   </Link>
                 </ListItemButton>
               </ListItem>
@@ -144,6 +155,9 @@ export default function Navbar() {
         <List>
           <ListItem disablePadding>
             <ListItemButton>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
               <Link to='/'>
                 <ListItemText>Home</ListItemText>
               </Link>
@@ -151,15 +165,31 @@ export default function Navbar() {
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
+              <ListItemIcon>
+                <MedicationIcon />
+              </ListItemIcon>
               <Link to='/products'>
-                <ListItemText>All Products</ListItemText>
+                <ListItemText>Products</ListItemText>
               </Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
+              <ListItemIcon>
+                <FactoryIcon />
+              </ListItemIcon>
               <Link to='/brands'>
-                <ListItemText>All Brands</ListItemText>
+                <ListItemText>Brands</ListItemText>
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <PolicyIcon />
+              </ListItemIcon>
+              <Link to='/categories'>
+                <ListItemText>The Legal Categories of medications</ListItemText>
               </Link>
             </ListItemButton>
           </ListItem>
@@ -168,37 +198,27 @@ export default function Navbar() {
         <List>
           {isLoggedIn ? (
             <>
-              {' '}
               <ListItem disablePadding>
                 <ListItemButton>
-                  <Link to='/products/create'>
+                  <Link to='/add'>
                     <ListItemButton>
                       <ListItemIcon>
-                        <InboxIcon />
+                        <AddIcon />
                       </ListItemIcon>
-                      <ListItemText>Add a Product</ListItemText>
+                      <ListItemText>Contribute to the Database</ListItemText>
                     </ListItemButton>
                   </Link>
                 </ListItemButton>
               </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <Link to='/brands/create'>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <InboxIcon />
-                      </ListItemIcon>
-                      <ListItemText>Add a Brand</ListItemText>
-                    </ListItemButton>
-                  </Link>
-                </ListItemButton>
-              </ListItem>{' '}
             </>
           ) : (
             <>
               <List>
                 <ListItem disablePadding>
                   <ListItemButton>
+                    <ListItemIcon>
+                      <AppRegistrationIcon />
+                    </ListItemIcon>
                     <Link to='/register'>
                       <ListItemText>Register</ListItemText>
                     </Link>
@@ -208,6 +228,9 @@ export default function Navbar() {
               <List>
                 <ListItem disablePadding>
                   <ListItemButton>
+                    <ListItemIcon>
+                      <LoginIcon />
+                    </ListItemIcon>
                     <Link to='/login'>
                       <ListItemText>Login</ListItemText>
                     </Link>

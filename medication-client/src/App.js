@@ -12,6 +12,9 @@ import CreateProduct from './components/CreateProduct';
 import EditProduct from './components/EditProduct';
 import Brand from './components/Brand';
 import CreateBrand from './components/CreateBrand';
+import CategoryIndex from './components/CategoryIndex';
+import AddToDataBase from './components/AddToDatabase';
+import FAQs from './components/FAQs';
 
 window.Buffer = window.Buffer || require('buffer').Buffer;
 
@@ -28,8 +31,11 @@ function App() {
         <Route path='/brands' element={<BrandIndex />} />
         <Route path='/brands/create' element={<CreateBrand />} />
         <Route path='/brands/:id' element={<Brand />} />
+        <Route path='/categories' element={<CategoryIndex />} />
         <Route path='/requests' element={<RequestIndex />} />
         <Route path='/newRequest' element={<CreateRequest />} />
+        <Route path='/add' element={<AddToDataBase />} />
+        <Route path='/faqs' element={<FAQs />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>

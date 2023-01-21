@@ -27,7 +27,6 @@ const getPayload = () => {
 
 const isOwner = (objectId) => objectId === getPayload().userId;
 const isSuperuser = () => {
-  console.log(getPayload().is_staff);
   return getPayload().is_staff;
 };
 

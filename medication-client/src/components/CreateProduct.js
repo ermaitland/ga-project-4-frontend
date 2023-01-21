@@ -52,19 +52,9 @@ export default function CreateProduct() {
 
   const handleChangeOne = (e) => {
     setCheckedOne(e.target.checked);
-    if (checkedOne) {
-      return true;
-    } else {
-      return false;
-    }
   };
   const handleChangeTwo = (e) => {
     setCheckedTwo(e.target.checked);
-    if (checkedTwo) {
-      return true;
-    } else {
-      return false;
-    }
   };
 
   const handleFormChange = (e) => {
@@ -72,16 +62,34 @@ export default function CreateProduct() {
   };
 
   const handleSubmit = (e) => {
-    API.POST(API.ENDPOINTS.getAllProducts, formData, API.getHeaders())
+    e.preventDefault();
+    const data = {
+      name: formData.name,
+      dose: formData.dose,
+      brand: formData.brand,
+      category: formData.category,
+      image: formData.image,
+      form: formData.form,
+      interactions: formData.interactions,
+      side_effects: formData.side_effects,
+      drive: checkedOne,
+      food: checkedTwo,
+      primary_use: formData.primary_use,
+      about: formData.about
+    };
+
+    API.POST(API.ENDPOINTS.getAllProducts, data, API.getHeaders())
       .then(({ data }) => {
         console.log(data);
-        navigate('/products');
+        navigate(`/products/${data.id}`);
       })
       .catch((e) => {
         setError(true);
         console.log(e);
       });
   };
+
+  const navigateToCreateBrand = () => navigate('/brands/create');
   return (
     <>
       <Container
@@ -122,8 +130,9 @@ export default function CreateProduct() {
               onChange={handleFormChange}
             >
               <MenuItem value=''>None</MenuItem>
+              <MenuItem onClick={navigateToCreateBrand}>Not There?</MenuItem>
               {avalibleBrand?.map((brand) => (
-                <MenuItem value={brand.id} key={brand._id}>
+                <MenuItem value={brand.id} key={brand.id}>
                   {brand.name}
                 </MenuItem>
               ))}
@@ -141,7 +150,7 @@ export default function CreateProduct() {
             >
               <MenuItem value=''>None</MenuItem>
               {avalibleCategory?.map((category) => (
-                <MenuItem value={category.id} key={category._id}>
+                <MenuItem value={category.id} key={category.id}>
                   {category.name}
                 </MenuItem>
               ))}

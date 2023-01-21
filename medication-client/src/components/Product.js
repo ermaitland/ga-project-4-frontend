@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { API } from '../lib/api';
 // import { useAuthenticated } from '../hooks/useAuthenticated';
 import { AUTH } from '../lib/auth';
@@ -25,6 +25,7 @@ export default function Product() {
   }, [id]);
 
   const goBackToMedications = () => navigate('/products');
+  const editMedication = () => navigate(`/editProducts/${id}`);
 
   let driveData = '';
   if (singleProduct?.drive === true) {
@@ -93,7 +94,7 @@ export default function Product() {
               component='p'
               mb={2}
             >
-              Can I drive on this? {driveData}
+              Can I drive on this medication? {driveData}
             </Typography>
             <Typography
               sx={{ fontSize: 20 }}
@@ -125,7 +126,9 @@ export default function Product() {
             </Button>
           </CardActions>
           {AUTH.isSuperuser() && (
-            <Link to={`/editProducts/${id}`}>Edit Product</Link>
+            <Button size='small' onClick={editMedication}>
+              Edit Product
+            </Button>
           )}
         </Box>
       </Container>

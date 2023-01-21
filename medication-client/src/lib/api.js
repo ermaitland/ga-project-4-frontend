@@ -6,12 +6,13 @@ const ENDPOINTS = {
   getSingleProduct: (id) => `/api/products/${id}/`,
   allCategories: '/api/category/',
   getAllBrands: '/api/brands/',
-  getSingleBrand: (id) => `/api/brands/${id}`,
+  getSingleBrand: (id) => `/api/brands/${id}/`,
   login: '/api/auth/login/',
   register: '/api/auth/register/',
   allRequests: '/api/requests/',
-  createRequest: 'api/request/create/',
-  search: (query) => `api/products/search/?search=${query}`
+  createRequest: '/api/request/create/',
+  search: (query) => `/api/products/search/?search=${query}`,
+  faqs: '/api/faqs/'
 };
 
 const getHeaders = () => ({

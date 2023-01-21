@@ -42,19 +42,9 @@ export default function EditProduct() {
 
   const handleChangeOne = (e) => {
     setCheckedOne(e.target.checked);
-    if (checkedOne) {
-      return true;
-    } else {
-      return false;
-    }
   };
   const handleChangeTwo = (e) => {
     setCheckedTwo(e.target.checked);
-    if (checkedTwo) {
-      return true;
-    } else {
-      return false;
-    }
   };
 
   useEffect(() => {
@@ -83,7 +73,23 @@ export default function EditProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    API.PUT(API.ENDPOINTS.getSingleProduct(id), formData, API.getHeaders())
+
+    const data = {
+      name: formData.name,
+      dose: formData.dose,
+      brand: formData.brand,
+      category: formData.category,
+      image: formData.image,
+      form: formData.form,
+      interactions: formData.interactions,
+      side_effects: formData.side_effects,
+      drive: checkedOne,
+      food: checkedTwo,
+      primary_use: formData.primary_use,
+      about: formData.about
+    };
+
+    API.PUT(API.ENDPOINTS.getSingleProduct(id), data, API.getHeaders())
       .then(({ data }) => {
         setFormData(data);
         console.log(productData);

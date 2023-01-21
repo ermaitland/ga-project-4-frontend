@@ -25,10 +25,12 @@ import AddIcon from '@mui/icons-material/Add';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { AUTH } from '../lib/auth';
 import { useAuthenticated } from '../hooks/useAuthenticated';
+import '../styles/Home.scss';
 
 const drawerWidth = 240;
 
@@ -99,29 +101,37 @@ export default function Navbar() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position='fixed' open={open}>
-        <Toolbar>
-          <IconButton
-            color='inherit'
-            aria-label='open drawer'
-            onClick={handleDrawerOpen}
-            edge='start'
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant='h6' noWrap component='div'>
-            Do You Know Your Meds?
-          </Typography>
+      <AppBar position='fixed' open={open} sx={{ pb: 0, mb: 0 }}>
+        <Toolbar className='top_nav' sx={{ pb: 0, mb: 0 }}>
+          <section className='left_of_nav'>
+            <IconButton
+              color='inherit'
+              aria-label='open drawer'
+              onClick={handleDrawerOpen}
+              edge='start'
+              sx={{ mr: 2, ...(open && { display: 'none' }) }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant='h6' noWrap component='div'>
+              Do You Know Your Meds?
+            </Typography>
+          </section>
           {isLoggedIn && (
             <List>
               <ListItem>
                 <ListItemButton>
                   <ListItemIcon>
-                    <LogoutIcon sx={{ pr: 0 }} />
+                    <LogoutIcon sx={{ pr: 0, color: '#FFFFFF' }} />
                   </ListItemIcon>
-                  <Link to='/' onClick={logout}>
-                    <ListItemText sx={{ pl: 0 }}>Logout</ListItemText>
+                  <Link
+                    to='/'
+                    onClick={logout}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <ListItemText sx={{ pl: 0, color: '#FFFFFF' }}>
+                      Logout
+                    </ListItemText>
                   </Link>
                 </ListItemButton>
               </ListItem>
@@ -129,6 +139,7 @@ export default function Navbar() {
           )}
         </Toolbar>
       </AppBar>
+
       <Drawer
         sx={{
           width: drawerWidth,
@@ -145,67 +156,91 @@ export default function Navbar() {
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon />
+              <ChevronLeftIcon sx={{ color: '#003459' }} />
             ) : (
-              <ChevronRightIcon />
+              <ChevronRightIcon sx={{ color: '#003459' }} />
             )}
           </IconButton>
         </DrawerHeader>
-        <Divider />
-        <List>
+        <Divider />{' '}
+        <List className='drawer'>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <HomeIcon />
+                <HomeIcon sx={{ color: '#003459' }} />
               </ListItemIcon>
-              <Link to='/'>
-                <ListItemText>Home</ListItemText>
+              <Link
+                to='/'
+                onClick={handleDrawerClose}
+                style={{ textDecoration: 'none' }}
+              >
+                <ListItemText sx={{ color: '#003459' }}>Home</ListItemText>
               </Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <MedicationIcon />
+                <MedicationIcon sx={{ color: '#003459' }} />
               </ListItemIcon>
-              <Link to='/products'>
-                <ListItemText>Products</ListItemText>
+              <Link
+                to='/products'
+                onClick={handleDrawerClose}
+                style={{ textDecoration: 'none' }}
+              >
+                <ListItemText sx={{ color: '#003459' }}>Products</ListItemText>
               </Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <FactoryIcon />
+                <FactoryIcon sx={{ color: '#003459' }} />
               </ListItemIcon>
-              <Link to='/brands'>
-                <ListItemText>Brands</ListItemText>
+              <Link
+                to='/brands'
+                onClick={handleDrawerClose}
+                style={{ textDecoration: 'none' }}
+              >
+                <ListItemText sx={{ color: '#003459' }}>Brands</ListItemText>
               </Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <PolicyIcon />
+                <PolicyIcon sx={{ color: '#003459' }} />
               </ListItemIcon>
-              <Link to='/categories'>
-                <ListItemText>The Legal Categories of medications</ListItemText>
+              <Link
+                to='/categories'
+                onClick={handleDrawerClose}
+                style={{ textDecoration: 'none' }}
+              >
+                <ListItemText sx={{ color: '#003459' }}>
+                  The Legal Categories of medications
+                </ListItemText>
               </Link>
             </ListItemButton>
           </ListItem>
         </List>
         <Divider />
-        <List>
+        <List className='drawer'>
           {isLoggedIn ? (
             <>
               <ListItem disablePadding>
                 <ListItemButton>
-                  <Link to='/add'>
+                  <Link
+                    to='/add'
+                    onClick={handleDrawerClose}
+                    style={{ textDecoration: 'none' }}
+                  >
                     <ListItemButton>
                       <ListItemIcon>
-                        <AddIcon />
+                        <AddIcon sx={{ color: '#003459' }} />
                       </ListItemIcon>
-                      <ListItemText>Contribute to the Database</ListItemText>
+                      <ListItemText sx={{ color: '#003459' }}>
+                        Contribute to the Database
+                      </ListItemText>
                     </ListItemButton>
                   </Link>
                 </ListItemButton>
@@ -217,10 +252,16 @@ export default function Navbar() {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <AppRegistrationIcon />
+                      <AppRegistrationIcon sx={{ color: '#003459' }} />
                     </ListItemIcon>
-                    <Link to='/register'>
-                      <ListItemText>Register</ListItemText>
+                    <Link
+                      to='/register'
+                      onClick={handleDrawerClose}
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <ListItemText sx={{ color: '#003459' }}>
+                        Register
+                      </ListItemText>
                     </Link>
                   </ListItemButton>
                 </ListItem>
@@ -229,22 +270,32 @@ export default function Navbar() {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <LoginIcon />
+                      <LoginIcon sx={{ color: '#003459' }} />
                     </ListItemIcon>
-                    <Link to='/login'>
-                      <ListItemText>Login</ListItemText>
+                    <Link
+                      to='/login'
+                      onClick={handleDrawerClose}
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <ListItemText sx={{ color: '#003459' }}>
+                        Login
+                      </ListItemText>
                     </Link>
                   </ListItemButton>
                 </ListItem>
               </List>
               <ListItem disablePadding>
                 <ListItemButton>
-                  <Link to='/newRequest'>
+                  <Link
+                    to='/newRequest'
+                    onClick={handleDrawerClose}
+                    style={{ textDecoration: 'none' }}
+                  >
                     <ListItemButton>
                       <ListItemIcon>
-                        <MailIcon />
+                        <MailIcon sx={{ color: '#003459' }} />
                       </ListItemIcon>
-                      <ListItemText>
+                      <ListItemText sx={{ color: '#003459' }}>
                         See something not right? Send up a request to change
                       </ListItemText>
                     </ListItemButton>
@@ -252,23 +303,42 @@ export default function Navbar() {
                 </ListItemButton>
               </ListItem>
             </>
+          )}{' '}
+          {AUTH.isSuperuser() && (
+            <ListItem disablePadding>
+              <ListItemButton>
+                <Link
+                  to='/requests'
+                  onClick={handleDrawerClose}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <InboxIcon sx={{ color: '#003459' }} />
+                    </ListItemIcon>
+                    <ListItemText sx={{ color: '#003459' }}>
+                      Requests
+                    </ListItemText>
+                  </ListItemButton>
+                </Link>
+              </ListItemButton>
+            </ListItem>
           )}
-        </List>{' '}
-        {AUTH.isSuperuser() && (
           <ListItem disablePadding>
             <ListItemButton>
-              <Link to='/requests'>
+              <Link to='/faqs' onClick={handleDrawerClose}>
                 <ListItemButton>
                   <ListItemIcon>
-                    <InboxIcon />
+                    <QuestionMarkIcon sx={{ color: '#003459' }} />
                   </ListItemIcon>
-                  <ListItemText>Requests</ListItemText>
+                  <ListItemText sx={{ color: '#003459' }}>FAQs</ListItemText>
                 </ListItemButton>
               </Link>
             </ListItemButton>
           </ListItem>
-        )}
+        </List>
       </Drawer>
+
       <Main open={open}>
         <DrawerHeader />
       </Main>

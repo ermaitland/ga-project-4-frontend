@@ -1,9 +1,12 @@
 import { Container } from '@mui/system';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { API } from '../lib/api';
-import { Card, Typography, CardContent, Box } from '@mui/material';
+import { Card, Typography, CardContent, Box, Button } from '@mui/material';
+import '../styles/Categories.scss';
 
 export default function CategoryIndex() {
+  const navigate = useNavigate();
   const [categories, setCategories] = useState();
 
   useEffect(() => {
@@ -30,35 +33,74 @@ export default function CategoryIndex() {
     }
   ];
 
+  const navigateToProducts = () => navigate('/products');
+
   return (
-    <Container>
-      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-        {categories?.map((category) => (
-          <Card sx={{ display: 'flex', width: 400 }} key={category.id}>
-            <Box
+    <section className='Categories'>
+      <Container>
+        <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+          {categories?.map((category) => (
+            <Card
               sx={{
                 display: 'flex',
-                flexDirection: 'row'
+                width: 400,
+                mr: 2,
+                mb: 2,
+                mt: 2
               }}
+              key={category.id}
             >
-              <CardContent sx={{ flex: '1 0 auto' }}>
-                <Typography component='div' variant='h5'>
-                  {category.name}
-                </Typography>{' '}
-              </CardContent>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row'
+                }}
+              >
+                <CardContent sx={{ flex: '1 0 auto' }}>
+                  <Typography
+                    component='div'
+                    variant='h5'
+                    sx={{
+                      color: '#003459'
+                    }}
+                  >
+                    {category.name}
+                  </Typography>{' '}
+                </CardContent>
+              </Box>
+            </Card>
+          ))}
+        </Box>
+        {descriptions?.map((description) => (
+          <Card
+            sx={{
+              display: 'flex',
+              width: 1150,
+              mb: 2,
+              mt: 2,
+              p: 4
+            }}
+          >
+            <Box>
+              <Typography
+                component='div'
+                variant='h5'
+                key={description.no}
+                sx={{
+                  color: '#003459'
+                }}
+              >
+                {description.info}
+              </Typography>
             </Box>
           </Card>
         ))}
-      </Box>
-      {descriptions?.map((description) => (
-        <Card>
-          <Box>
-            <Typography component='div' variant='h5' key={description.no}>
-              {description.info}
-            </Typography>
-          </Box>
-        </Card>
-      ))}
-    </Container>
+      </Container>
+      <Container>
+        <Button onClick={navigateToProducts}>
+          I hope this makes sense now, click here to be taken to the Products
+        </Button>
+      </Container>
+    </section>
   );
 }

@@ -3,6 +3,7 @@ import { API } from '../lib/api';
 import ProductCard from './common/ProductCard';
 import { Container, Grid, Box } from '@mui/material';
 import Search from './common/Search';
+import '../styles/Products.scss';
 
 export default function ProductIndex() {
   const [products, setProducts] = useState([]);
@@ -28,7 +29,7 @@ export default function ProductIndex() {
           sx={{ display: 'flex', justifyContent: 'space-around' }}
         >
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={12} md={8}>
+            <Grid item xs={8} sm={8} md={12}>
               <Grid container spacing={2}>
                 {products?.map((product) => (
                   <Grid item sm={12} md={4} key={product.id}>

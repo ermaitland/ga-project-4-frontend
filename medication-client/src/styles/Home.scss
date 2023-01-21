@@ -5,8 +5,22 @@
   background-repeat: repeat;
   background-size: cover;
   height: 100vh;
+  margin-top: 0px;
   font-size: 70px;
   text-align: center;
   font-family: 'Source Sans Pro', sans-serif;
 }
-// https://www.okkidney.org/images/headers/tablets.jpg
+
+.top_nav {
+  background-color: #003459;
+  display: flex;
+  justify-content: space-between;
+  height: 110px;
+  .left_of_nav {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.drawer {
+  color: #007ea7;
+}

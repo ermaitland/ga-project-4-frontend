@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { API } from '../lib/api';
 // import { useAuthenticated } from '../hooks/useAuthenticated';
 // import { AUTH } from '../lib/auth';
@@ -17,7 +17,7 @@ export default function Brand() {
       .catch(({ message, response }) => console.log(message, response));
   }, [id]);
 
-  const goBackToMedications = () => navigate('/brands');
+  const goBackToBrands = () => navigate('/brands');
 
   return (
     <>
@@ -40,11 +40,16 @@ export default function Brand() {
               component='p'
               mb={2}
             >
-              {product.name}
+              <Link
+                to={`/products/${product.id}`}
+                style={{ textDecoration: 'none' }}
+              >
+                {product.name}
+              </Link>
             </Typography>
           ))}
           <CardActions>
-            <Button size='small' onClick={goBackToMedications}>
+            <Button size='small' onClick={goBackToBrands}>
               Back to brands
             </Button>
           </CardActions>

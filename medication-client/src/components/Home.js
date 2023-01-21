@@ -24,7 +24,7 @@ export default function Home() {
                 console.log('All strings were deleted');
               })
               .pauseFor(1000)
-              .typeString("Check'em")
+              .typeString('Check your medications.')
               .callFunction(() => {
                 console.log('String typed out!');
               })

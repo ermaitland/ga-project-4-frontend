@@ -13,6 +13,7 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/Products.scss';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -43,7 +44,7 @@ export default function ProductCard({
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className='productCard'>
       <CardHeader title={name} subheader={brand} />
       <CardActionArea onClick={navigateToProduct}>
         <CardMedia component='img' height='194' image={image} alt={name} />

@@ -2,6 +2,7 @@ import { TextField, Stack, Autocomplete } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API } from '../../lib/api';
+import '../../styles/Products.scss';
 
 export default function Search() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function Search() {
   }, [query]);
 
   return (
-    <Stack spacing={2} sx={{ width: 600 }}>
+    <Stack spacing={2} sx={{ width: 600, color: '#003459' }} className='search'>
       <Autocomplete
         options={query ? filteredProducts : products}
         getOptionLabel={(product) => product.name}

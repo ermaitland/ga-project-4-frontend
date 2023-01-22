@@ -11,6 +11,7 @@ import {
   Button,
   Typography
 } from '@mui/material';
+import '../styles/Products.scss';
 
 export default function Product() {
   // const [isLoggedIn] = useAuthenticated();
@@ -42,17 +43,17 @@ export default function Product() {
   }
 
   return (
-    <>
-      <Container
-        maxWidth='lg'
-        sx={{ display: 'flex' }}
-        className='singleProduct'
-      >
+    <section className='singleProduct'>
+      <Container maxWidth='lg' sx={{ display: 'flex', pt: 10 }}>
         <Box>
-          <img src={singleProduct?.image} alt={singleProduct?.name} />
+          <img
+            src={singleProduct?.image}
+            alt={singleProduct?.name}
+            className='image'
+          />
         </Box>
         <Box>
-          <CardContent>
+          <CardContent className='text'>
             <Typography variant='h4' component='p' mb={2}>
               {singleProduct?.name}
             </Typography>
@@ -124,19 +125,20 @@ export default function Product() {
             <Button size='small' onClick={goBackToMedications}>
               More Medications
             </Button>
+
+            {AUTH.isSuperuser() && (
+              <Button size='small' onClick={editMedication}>
+                Edit Product
+              </Button>
+            )}
           </CardActions>
-          {AUTH.isSuperuser() && (
-            <Button size='small' onClick={editMedication}>
-              Edit Product
-            </Button>
-          )}
         </Box>
       </Container>
       <Container maxWidth='lg'>
         <Box>
-          <Typography>{singleProduct?.about}</Typography>
+          <Typography sx={{ fontSize: 20 }}>{singleProduct?.about}</Typography>
         </Box>
       </Container>
-    </>
+    </section>
   );
 }

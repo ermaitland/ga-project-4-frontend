@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { TextField, Container, Box, Button, Typography } from '@mui/material';
 import { API } from '../lib/api';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Brands.scss';
 
 export default function CreateBrand() {
   const [formData, setFormData] = useState({ name: '', image: '' });
@@ -27,13 +28,13 @@ export default function CreateBrand() {
   };
 
   return (
-    <section className='createProduct'>
+    <section className='createBrand'>
       <Typography
         variant='h4'
         component='p'
-        sx={{ textAlign: 'center', pt: '40px' }}
+        sx={{ textAlign: 'center', pt: 10, pb: 15 }}
       >
-        Add a Brand
+        See a manufacturer thats missing? Please add them below!
       </Typography>
       <Container
         maxWidth='lg'
@@ -47,8 +48,9 @@ export default function CreateBrand() {
               value={formData.name}
               onChange={handleChange}
               error={error}
-              label='Name'
+              label='Name e.g HillView Pharma'
               name='name'
+              sx={{ width: 350 }}
             />
           </Box>
           <Box sx={{ mb: 2 }}>
@@ -58,11 +60,12 @@ export default function CreateBrand() {
               value={formData.image}
               onChange={handleChange}
               error={error}
-              label='Image'
+              label='Image url'
               name='image'
+              sx={{ width: 350 }}
             />
           </Box>
-          <Button type='submit'>Add the brand!</Button>
+          <Button type='submit'>Add to the database!</Button>
         </form>
       </Container>
     </section>

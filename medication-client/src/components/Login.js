@@ -79,6 +79,7 @@ export default function Login() {
             type='submit'
             size='medium'
             endIcon={<SendIcon />}
+            sx={{ mr: 1 }}
           >
             Login
           </Button>

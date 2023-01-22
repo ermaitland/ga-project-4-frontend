@@ -128,6 +128,7 @@ export default function Register() {
               variant='contained'
               type='submit'
               endIcon={<HowToRegIcon />}
+              sx={{ mr: 1 }}
             >
               Register!
             </Button>

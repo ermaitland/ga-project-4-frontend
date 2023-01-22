@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import RequestCard from './common/RequestCard';
 import { API } from '../lib/api';
 import { Container } from '@mui/system';
+import { Grid } from '@mui/material';
+import '../styles/Request.scss';
 
 export default function RequestIndex() {
   const [requests, setRequests] = useState(null);
@@ -16,15 +18,27 @@ export default function RequestIndex() {
   }, []);
 
   return (
-    <section>
-      <Container>
-        {requests?.map((request) => (
-          <RequestCard
-            key={request.id}
-            product={request?.products?.name}
-            text={request?.text}
-          />
-        ))}
+    <section className='RequestIndex'>
+      <Container
+        maxwith='lg'
+        sx={{ display: 'flex', justifyContent: 'space-around', pt: 10 }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Grid container spacing={2}>
+              {requests?.map((request) => (
+                <Grid item sm={12} key={request.id}>
+                  <RequestCard
+                    key={request.id}
+                    product={request?.products?.name}
+                    text={request?.text}
+                    className='requestCard'
+                  />{' '}
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+        </Grid>
       </Container>
     </section>
   );

@@ -4,6 +4,7 @@ import { API } from '../lib/api';
 // import { useAuthenticated } from '../hooks/useAuthenticated';
 // import { AUTH } from '../lib/auth';
 import { Container, Box, CardActions, Button, Typography } from '@mui/material';
+import '../styles/Brands.scss';
 
 export default function Brand() {
   // const [isLoggedIn] = useAuthenticated();
@@ -20,18 +21,25 @@ export default function Brand() {
   const goBackToBrands = () => navigate('/brands');
 
   return (
-    <>
+    <section className='singleBrand'>
       <Container
         maxWidth='lg'
-        sx={{ display: 'flex' }}
-        className='singleProduct'
+        sx={{ display: 'flex', justifyContent: 'center' }}
       >
         <Box>
-          <img src={singleBrand?.image} alt={singleBrand?.name} />
+          <img
+            src={singleBrand?.image}
+            alt={singleBrand?.name}
+            className='image'
+          />
         </Box>
-        <Box>
+        <Box className='text'>
           <Typography variant='h4' component='p' mb={2}>
             {singleBrand?.name}
+          </Typography>
+          <Typography variant='h6' component='p' mb={2}>
+            The following products are on our database and are made by this
+            company:
           </Typography>
           {singleBrand?.products.map((product) => (
             <Typography
@@ -44,7 +52,7 @@ export default function Brand() {
                 to={`/products/${product.id}`}
                 style={{ textDecoration: 'none' }}
               >
-                {product.name}
+                {product.name} - {product.dose}
               </Link>
             </Typography>
           ))}
@@ -59,6 +67,6 @@ export default function Brand() {
         </Box>
       </Container>
       <Container maxWidth='lg'></Container>
-    </>
+    </section>
   );
 }

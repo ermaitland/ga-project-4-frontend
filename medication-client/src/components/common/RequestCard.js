@@ -1,9 +1,18 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
+import Checkbox from '@mui/material/Checkbox';
+import { Container } from '@mui/system';
+import { useState } from 'react';
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export default function RequestCard({ product, text }) {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
   return (
     <Card sx={{ display: 'flex', width: 1000 }}>
-      <Box sx={{}}>
+      <Box>
         <CardContent
           sx={{
             flex: '1 0 auto',
@@ -11,11 +20,12 @@ export default function RequestCard({ product, text }) {
             flexDirection: 'row'
           }}
         >
-          <section
+          <Container
             sx={{
               flex: '1 0 auto',
               display: 'flex',
-              flexDirection: 'column'
+              flexDirection: 'column',
+              width: 800
             }}
           >
             <Typography component='div' variant='h5'>
@@ -24,30 +34,15 @@ export default function RequestCard({ product, text }) {
             <Typography component='div' variant='h5'>
               {text}
             </Typography>
-          </section>
-          <Box sx={{}}>
-            <div class='mdc-touch-target-wrapper'>
-              <div class='mdc-checkbox mdc-checkbox--touch'>
-                <input
-                  type='checkbox'
-                  class='mdc-checkbox__native-control'
-                  id='checkbox-1'
-                />
-                <div class='mdc-checkbox__background'>
-                  <svg class='mdc-checkbox__checkmark' viewBox='0 0 24 24'>
-                    <path
-                      class='mdc-checkbox__checkmark-path'
-                      fill='none'
-                      d='M1.73,12.91 8.1,19.28 22.79,4.59'
-                    />
-                  </svg>
-                  <div class='mdc-checkbox__mixedmark'></div>
-                </div>
-                <div class='mdc-checkbox__ripple'></div>
-                <div class='mdc-checkbox__focus-ring'></div>
-              </div>
-            </div>
-          </Box>
+          </Container>{' '}
+          <Container>
+            <Checkbox
+              {...label}
+              checked={checked}
+              onChange={handleChange}
+              inputProps={{ 'aria-label': 'controlled' }}
+            />
+          </Container>
         </CardContent>
       </Box>
     </Card>

@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API } from '../lib/api';
+import '../styles/Products.scss';
 
 export default function AddToDataBase() {
   const navigate = useNavigate();
@@ -22,24 +23,40 @@ export default function AddToDataBase() {
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'row-reverse'
+        flexDirection: 'column'
+        // justifyContent: 'space-between'
       }}
+      className='addToDatabase'
     >
-      <Container sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Container>
-          <Button onClick={AddABrand}>Add a Brand</Button>
+      {' '}
+      <Typography sx={{ fontSize: 20, textAlign: 'center', mt: 10 }}>
+        How would you like to contribute?
+      </Typography>
+      <Container
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center'
+        }}
+      >
+        <Container sx={{ width: 700, mt: 10, mb: 10 }}>
+          <Button onClick={AddABrand} variant='contained' size='large'>
+            Add a Brand
+          </Button>
         </Container>
-        <Container>
-          <Button onClick={AddAProduct}>Add a Product</Button>
+        <Container sx={{ width: 700, mt: 10, mb: 10 }}>
+          <Button onClick={AddAProduct} variant='contained' size='large'>
+            Add a Product
+          </Button>
         </Container>
       </Container>
-      <Container>
-        <Typography>
+      <Container sx={{ mb: 25 }}>
+        <Typography sx={{ textAlign: 'center' }}>
           If the product you wish to add does one of the following brands,
           please add the brand first.
         </Typography>
         {brands?.map((brand) => (
-          <Typography>{brand.name}</Typography>
+          <Typography sx={{ textAlign: 'center' }}>{brand.name}</Typography>
         ))}
       </Container>
     </Box>

@@ -1,0 +1,18 @@
+.RequestIndex {
+  background-color: #e8e9f3;
+  height: 100vh;
+  .requestCard {
+    margin-bottom: 5px;
+  }
+}
+.createRequest {
+  // background-color: #e8e9f3;
+  background-image: url('https://thehill.com/wp-content/uploads/sites/2/2022/08/CA_depression_08222022istock.jpg?strip=1');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}

@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import { API } from '../lib/api';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Products.scss';
 
 let emptyForm = {
   name: '',
@@ -91,10 +92,17 @@ export default function CreateProduct() {
 
   const navigateToCreateBrand = () => navigate('/brands/create');
   return (
-    <>
+    <section className='createProduct'>
+      <Typography
+        variant='h4'
+        component='p'
+        sx={{ textAlign: 'center', pt: 5, pb: 5 }}
+      >
+        Please add the missing brands below, all fields must be filled in!
+      </Typography>
       <Container
         maxWidth='lg'
-        sx={{ display: 'flex', justifyContent: 'center', pt: 5 }}
+        sx={{ display: 'flex', justifyContent: 'center' }}
       >
         <form onSubmit={handleSubmit}>
           <Box sx={{ mb: 2 }}>
@@ -106,6 +114,7 @@ export default function CreateProduct() {
               error={error}
               label='Name'
               name='name'
+              sx={{ width: 400 }}
             />
           </Box>
           <Box sx={{ mb: 2 }}>
@@ -117,9 +126,10 @@ export default function CreateProduct() {
               error={error}
               label='Dose'
               name='dose'
+              sx={{ width: 400 }}
             />
           </Box>
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={{ mb: 2 }}>
             <InputLabel id='brand'>Brand</InputLabel>
             <Select
               size='small'
@@ -138,7 +148,7 @@ export default function CreateProduct() {
               ))}
             </Select>
           </FormControl>
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={{ mb: 2 }}>
             <InputLabel id='category'>Category</InputLabel>
             <Select
               size='small'
@@ -165,6 +175,7 @@ export default function CreateProduct() {
               error={error}
               label='Image'
               name='image'
+              sx={{ width: 400 }}
             />
           </Box>
           <Box sx={{ mb: 2 }}>
@@ -176,6 +187,7 @@ export default function CreateProduct() {
               error={error}
               label='Please write a description'
               name='form'
+              sx={{ width: 400 }}
             />
           </Box>
           <Box sx={{ mb: 2 }}>
@@ -187,6 +199,7 @@ export default function CreateProduct() {
               error={error}
               label='Interactions'
               name='interactions'
+              sx={{ width: 400 }}
             />
           </Box>
           <Box sx={{ mb: 2 }}>
@@ -198,6 +211,7 @@ export default function CreateProduct() {
               error={error}
               label='Side Effects'
               name='side_effects'
+              sx={{ width: 400 }}
             />
           </Box>
           <Box>
@@ -229,6 +243,7 @@ export default function CreateProduct() {
               error={error}
               label='Primarily use'
               name='primary_use'
+              sx={{ width: 400 }}
             />
           </Box>
           <Box sx={{ mb: 2 }}>
@@ -240,12 +255,13 @@ export default function CreateProduct() {
               error={error}
               label='Please tell us a bit about this medication'
               name='about'
+              sx={{ width: 400 }}
             />
           </Box>
           <Box></Box>
           <Button type='submit'>Submit!</Button>
         </form>
       </Container>
-    </>
+    </section>
   );
 }

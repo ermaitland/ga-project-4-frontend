@@ -4,6 +4,8 @@ import { AUTH } from '../lib/auth';
 import { useNavigate } from 'react-router-dom';
 import { Container } from '@mui/system';
 import { Button, TextField } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+import '../styles/LoginAndRegister.scss';
 
 export default function Login() {
   const [formFields, setFormFields] = useState({ username: '', password: '' });
@@ -30,7 +32,7 @@ export default function Login() {
   const navigateToRegister = () => navigate('/register');
 
   return (
-    <section className='LoginRegister'>
+    <section className='LoginAndRegister'>
       <Container
         maxWidth='lg'
         sx={{
@@ -43,7 +45,7 @@ export default function Login() {
         <form onSubmit={handleSubmit}>
           <div>
             <TextField
-              size='small'
+              size='medium'
               name='username'
               id='username'
               type='text'
@@ -53,12 +55,12 @@ export default function Login() {
               value={formFields.username}
               onChange={handleChange}
               error={error.username}
-              sx={{ mb: 2 }}
+              sx={{ mb: 2, width: 350 }}
             />
           </div>
           <div>
             <TextField
-              size='small'
+              size='medium'
               name='password'
               id='password'
               type='password'
@@ -69,13 +71,18 @@ export default function Login() {
               onChange={handleChange}
               variant='outlined'
               error={error.password}
-              sx={{ mb: 2 }}
+              sx={{ mb: 2, width: 350 }}
             />
           </div>
-          <Button variant='contained' type='submit'>
+          <Button
+            variant='contained'
+            type='submit'
+            size='medium'
+            endIcon={<SendIcon />}
+          >
             Login
           </Button>
-          <Button onClick={navigateToRegister}>
+          <Button onClick={navigateToRegister} size='small' className='button'>
             Not Registered? Register here
           </Button>
         </form>

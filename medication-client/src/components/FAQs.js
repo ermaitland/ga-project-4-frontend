@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { API } from '../lib/api';
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import FAQsCard from './common/FAQsCard';
+import '../styles/FAQs.scss';
 
 export default function FAQs() {
   const [FAQs, setFAQs] = useState([]);
@@ -18,8 +19,11 @@ export default function FAQs() {
   console.log(FAQs);
 
   return (
-    <section className='ProductIndex'>
+    <section className='FAQsIndex'>
       <Container maxwith='lg' sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Typography sx={{ mt: 6, fontSize: '35px', color: 'white', pl: 3 }}>
+          Here are some of the most ferquently asked questions!
+        </Typography>
         <Container
           maxwith='lg'
           sx={{ display: 'flex', justifyContent: 'space-around' }}
@@ -33,6 +37,7 @@ export default function FAQs() {
                       key={FAQ.id}
                       question={FAQ.question}
                       answer={FAQ.answer}
+                      className='FAQsCard'
                     />
                   </Grid>
                 ))}

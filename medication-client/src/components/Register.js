@@ -3,6 +3,8 @@ import { API } from '../lib/api';
 import { useNavigate } from 'react-router-dom';
 import { AUTH } from '../lib/auth';
 import { Container, TextField, Box, Button } from '@mui/material';
+import '../styles/LoginAndRegister.scss';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 export default function Register() {
   const [formFields, setFormFields] = useState({
@@ -40,7 +42,7 @@ export default function Register() {
   const navigateToLogin = (e) => navigate('/login');
 
   return (
-    <section className='LoginRegister'>
+    <section className='LoginAndRegister'>
       <Container
         maxWidth='lg'
         sx={{
@@ -62,7 +64,7 @@ export default function Register() {
               value={formFields.first_name}
               onChange={handleChange}
               error={error}
-              sx={{ mb: 2 }}
+              sx={{ mb: 2, width: 350 }}
             />
           </div>
           <div>
@@ -76,7 +78,7 @@ export default function Register() {
               value={formFields.username}
               onChange={handleChange}
               error={error}
-              sx={{ mb: 2 }}
+              sx={{ mb: 2, width: 350 }}
             />
           </div>
           <div>
@@ -90,7 +92,7 @@ export default function Register() {
               value={formFields.email}
               onChange={handleChange}
               error={error}
-              sx={{ mb: 2 }}
+              sx={{ mb: 2, width: 350 }}
             />
           </div>
           <div>
@@ -104,7 +106,7 @@ export default function Register() {
               value={formFields.password}
               onChange={handleChange}
               error={error}
-              sx={{ mb: 2 }}
+              sx={{ mb: 2, width: 350 }}
             />
           </div>
           <div>
@@ -118,14 +120,18 @@ export default function Register() {
               value={formFields.password_confirmation}
               onChange={handleChange}
               error={error}
-              sx={{ mb: 2 }}
+              sx={{ mb: 2, width: 350 }}
             />
           </div>
           <Box mt={2}>
-            <Button variant='contained' type='submit'>
+            <Button
+              variant='contained'
+              type='submit'
+              endIcon={<HowToRegIcon />}
+            >
               Register!
             </Button>
-            <Button onClick={navigateToLogin}>
+            <Button onClick={navigateToLogin} className='button'>
               Already Registered? Login here
             </Button>
           </Box>

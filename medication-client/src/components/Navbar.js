@@ -121,14 +121,19 @@ export default function Navbar() {
             <List>
               <ListItem>
                 <ListItemButton>
-                  <ListItemIcon>
-                    <LogoutIcon sx={{ pr: 0, color: '#FFFFFF' }} />
-                  </ListItemIcon>
                   <Link
                     to='/'
                     onClick={logout}
-                    style={{ textDecoration: 'none' }}
+                    style={{
+                      textDecoration: 'none',
+                      display: 'flex',
+                      flexDirection: 'row'
+                    }}
                   >
+                    <ListItemIcon>
+                      <LogoutIcon sx={{ pr: 0, color: '#FFFFFF' }} />
+                    </ListItemIcon>
+
                     <ListItemText sx={{ pl: 0, color: '#FFFFFF' }}>
                       Logout
                     </ListItemText>

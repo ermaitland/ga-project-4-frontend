@@ -30,8 +30,8 @@ export default function FAQsCard({ question, answer }) {
   };
 
   return (
-    <Grid>
-      <Card sx={{ minWidth: 1000 }}>
+    <Grid sx={{ mt: 3 }}>
+      <Card sx={{ minWidth: 1000, backgroundColor: '#ebe9e9' }}>
         <CardHeader title={question} />
         <CardActions disableSpacing>
           <ExpandMore

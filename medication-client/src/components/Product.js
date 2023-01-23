@@ -29,14 +29,14 @@ export default function Product() {
   const editMedication = () => navigate(`/editProducts/${id}`);
 
   let driveData = '';
-  if (singleProduct?.drive === true) {
+  if (singleProduct?.drive) {
     driveData = 'Yes';
   } else {
     driveData = 'No';
   }
 
   let foodData = '';
-  if (singleProduct?.food === true) {
+  if (singleProduct?.food) {
     foodData = 'Yes';
   } else {
     foodData = 'No';

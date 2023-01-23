@@ -29,12 +29,11 @@ export default function RequestIndex() {
           <Grid item xs={12}>
             <Grid container spacing={2}>
               {requests?.map((request) => (
-                <Grid item sm={12} key={request.id}>
+                <Grid item sm={12} key={request.id} className='requestCard'>
                   <RequestCard
                     key={request.id}
                     product={request?.products?.name}
                     text={request?.text}
-                    className='requestCard'
                   />{' '}
                 </Grid>
               ))}

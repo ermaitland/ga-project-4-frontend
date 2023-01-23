@@ -41,6 +41,7 @@ export default function CategoryIndex() {
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
           {categories?.map((category) => (
             <Card
+              className='legalCategory'
               sx={{
                 display: 'flex',
                 width: 400,
@@ -73,9 +74,9 @@ export default function CategoryIndex() {
         </Box>
         {descriptions?.map((description) => (
           <Card
+            className='card'
             sx={{
               display: 'flex',
-              width: 1150,
               mb: 2,
               mt: 2,
               p: 4
@@ -97,7 +98,11 @@ export default function CategoryIndex() {
         ))}
       </Container>
       <Container>
-        <Button onClick={navigateToProducts}>
+        <Button
+          onClick={navigateToProducts}
+          sx={{ color: 'white' }}
+          variant='contained'
+        >
           I hope this makes sense now, click here to be taken to the Products
         </Button>
       </Container>

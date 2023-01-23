@@ -34,11 +34,8 @@ export default function ProductIndex() {
 
   return (
     <section className='ProductIndex'>
-      <Box
-        sx={{ flexGrow: 1, display: { sx: 8, sm: 'flex' } }}
-        className='search'
-      >
-        <Stack spacing={2} sx={{ width: 600 }} className='search'>
+      <Box sx={{ flexGrow: 1, display: { sx: 8, sm: 'flex' } }}>
+        <Stack spacing={2} sx={{ width: 400 }} className='search'>
           <Autocomplete
             options={query ? filteredProducts : products}
             getOptionLabel={(product) => product.name}
@@ -79,13 +76,8 @@ export default function ProductIndex() {
                       brand={product.brand.name}
                       image={product.image}
                       dose={product.dose}
-                      // category={product.category.name}
-                      // interactions={product.interactions}
                       side_effects={product.side_effects}
-                      // drive={product?.drive.toString()}
-                      food={product?.food.toString()}
                       primary_use={product.primary_use}
-                      about={product.about}
                     />
                   </Grid>
                 ))}

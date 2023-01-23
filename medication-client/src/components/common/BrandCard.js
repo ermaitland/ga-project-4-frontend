@@ -7,7 +7,7 @@ export default function BrandCard({ image, name, id }) {
   const navigateToBrand = () => navigate(`/brands/${id}`);
   return (
     <Card
-      sx={{ display: 'flex', width: 1000 }}
+      sx={{ display: 'flex' }}
       onClick={navigateToBrand}
       className='brandCard'
     >

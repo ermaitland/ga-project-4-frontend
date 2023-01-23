@@ -21,7 +21,7 @@ export default function FAQs() {
   return (
     <section className='FAQsIndex'>
       <Container maxwith='lg' sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Typography sx={{ mt: 6, fontSize: '35px', color: 'white', pl: 3 }}>
+        <Typography sx={{ mt: 6, fontSize: '35px', pl: 3 }}>
           Here are some of the most ferquently asked questions!
         </Typography>
         <Container

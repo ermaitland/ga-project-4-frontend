@@ -5,4 +5,21 @@
   margin-top: 0;
   padding-top: 0;
   height: 100vh;
+  color: #ffffff;
+}
+@media only screen and (max-width: 400px) {
+  .FAQsIndex {
+    width: 400px;
+    background-color: #e8e9f3;
+    height: 200vh;
+    background-image: none;
+    color: #00171f;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .FAQsIndex {
+    width: 770px;
+    background-size: cover;
+  }
 }

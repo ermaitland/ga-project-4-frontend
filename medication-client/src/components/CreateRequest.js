@@ -22,8 +22,6 @@ export default function CreateRequest() {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  // const handleProductChange = (e) => ;
-
   useEffect(() => {
     API.GET(API.ENDPOINTS.getAllProducts)
       .then(({ data }) => setProducts(data))

@@ -44,34 +44,38 @@ export default function ProductCard({
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }} className='productCard'>
-      <CardHeader title={name} subheader={brand} />
-      <CardActionArea onClick={navigateToProduct}>
-        <CardMedia component='img' height='194' image={image} alt={name} />
-      </CardActionArea>
-      <CardContent>
-        <Typography variant='body2' color='text.secondary'>
-          Find out more
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label='Read more'
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout='auto' unmountOnExit>
+    <section className='productCard'>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardHeader title={name} subheader={brand} />
+        <CardActionArea onClick={navigateToProduct}>
+          <CardMedia component='img' height='194' image={image} alt={name} />
+        </CardActionArea>
         <CardContent>
-          <Typography paragraph>Basic info on: {name}</Typography>
-          <Typography display='block'>Dose: {dose}</Typography>
-          <Typography display='block'>Side Effects: {side_effects}</Typography>
-          <Typography display='block'>Used for: {primary_use}</Typography>
+          <Typography variant='body2' color='text.secondary'>
+            Find out more
+          </Typography>
         </CardContent>
-      </Collapse>
-    </Card>
+        <CardActions disableSpacing>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label='Read more'
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout='auto' unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Basic info on: {name}</Typography>
+            <Typography display='block'>Dose: {dose}</Typography>
+            <Typography display='block'>
+              Side Effects: {side_effects}
+            </Typography>
+            <Typography display='block'>Used for: {primary_use}</Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
+    </section>
   );
 }

@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { API } from '../lib/api';
-// import { useAuthenticated } from '../hooks/useAuthenticated';
-// import { AUTH } from '../lib/auth';
 import { Container, Box, CardActions, Button, Typography } from '@mui/material';
 import '../styles/Brands.scss';
 
 export default function Brand() {
-  // const [isLoggedIn] = useAuthenticated();
   const { id } = useParams();
   const [singleBrand, setSingleBrand] = useState(null);
   const navigate = useNavigate();
@@ -61,9 +58,6 @@ export default function Brand() {
               Back to brands
             </Button>
           </CardActions>
-          {/* {AUTH.isSuperuser() && (
-            <Link to={`/editProducts/${id}`}>Edit Product</Link>
-          )} */}
         </Box>
       </Container>
       <Container maxWidth='lg'></Container>

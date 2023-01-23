@@ -6,6 +6,7 @@
 }
 .brandCard {
   height: 150px;
+  width: 1000;
   margin-bottom: 10px;
   margin-top: 10px;
   margin-left: 3vw;
@@ -41,5 +42,27 @@
   }
   .text {
     padding-left: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .BrandIndex {
+    width: 400px;
+  }
+  .brandCard {
+    width: 325px;
+    height: 100px;
+    .indexImage {
+      height: 50px;
+      width: 50px;
+    }
+  }
+  .singleBrand {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    .image {
+      display: none;
+    }
   }
 }

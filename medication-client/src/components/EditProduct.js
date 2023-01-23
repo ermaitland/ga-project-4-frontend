@@ -13,6 +13,7 @@ import {
   Switch
 } from '@mui/material';
 import { API } from '../lib/api';
+import '../styles/Products.scss';
 
 let emptyForm = {
   name: '',
@@ -104,7 +105,7 @@ export default function EditProduct() {
   };
 
   return (
-    <>
+    <section className='createProduct'>
       <Container
         maxWidth='lg'
         sx={{ display: 'flex', justifyContent: 'center', pt: 5 }}
@@ -132,7 +133,7 @@ export default function EditProduct() {
               name='dose'
             />
           </Box>
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={{ mb: 2 }}>
             <InputLabel id='brand'>Brand</InputLabel>
             <Select
               size='small'
@@ -150,7 +151,7 @@ export default function EditProduct() {
               ))}
             </Select>
           </FormControl>
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={{ mb: 2 }}>
             <InputLabel id='category'>Category</InputLabel>
             <Select
               size='small'
@@ -258,6 +259,6 @@ export default function EditProduct() {
           <Button type='submit'>Submit!</Button>
         </form>
       </Container>
-    </>
+    </section>
   );
 }

@@ -1,6 +1,6 @@
 .BrandIndex {
   background-color: #e8e9f3;
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
   position: absolute;
 }
@@ -10,11 +10,16 @@
   margin-top: 10px;
   margin-left: 3vw;
   .cardContent {
+    background-color: #003459;
+    color: white;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+  }
+  .indexImage {
+    height: 150px;
+    width: 150px;
   }
 }
 .createBrand {

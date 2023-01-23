@@ -11,21 +11,14 @@ export default function BrandCard({ image, name, id }) {
       onClick={navigateToBrand}
       className='brandCard'
     >
-      <Box
-        sx={
-          {
-            // display: 'flex',
-            // flexDirection: 'row'
-          }
-        }
-        className='cardContent'
-      >
+      <Box className='cardContent'>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component='div' variant='h5'>
             {name}
           </Typography>
         </CardContent>
         <CardMedia
+          className='indexImage'
           component='img'
           sx={{ width: 100, height: 100 }}
           image={image}

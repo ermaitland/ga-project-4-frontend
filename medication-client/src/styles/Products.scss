@@ -5,12 +5,13 @@
 }
 
 .search {
-  margin-left: 21vw;
-  margin-top: 2vw;
+  padding-top: 10px;
   margin-bottom: 2vw;
+  width: 400px;
 }
 .ProductIndex {
-  background-color: #e8e9f3;
+  // background-color: #e8e9f3;
+  // height: 200vh;
 }
 .productCard {
   background-color: #ffffff;
@@ -23,6 +24,13 @@
   background-color: #e8e9f3;
   height: 100vh;
   width: 100vw;
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 13%;
+  }
 }
 .singleProduct {
   background-color: #e8e9f3;

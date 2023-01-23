@@ -10,7 +10,7 @@ const ENDPOINTS = {
   login: '/api/auth/login/',
   register: '/api/auth/register/',
   allRequests: '/api/requests/',
-  createRequest: '/api/request/create/',
+  createRequest: '/api/requests/create/',
   search: (query) => `/api/products/search/?search=${query}`,
   faqs: '/api/faqs/'
 };

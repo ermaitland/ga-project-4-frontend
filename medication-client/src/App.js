@@ -15,6 +15,7 @@ import CreateBrand from './components/CreateBrand';
 import CategoryIndex from './components/CategoryIndex';
 import AddToDataBase from './components/AddToDatabase';
 import FAQs from './components/FAQs';
+import './styles/App.css';
 
 window.Buffer = window.Buffer || require('buffer').Buffer;
 

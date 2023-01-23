@@ -26,6 +26,20 @@ export default function CreateBrand() {
         console.log(e);
       });
   };
+  const handleSubmitAndNextAdd = (e) => {
+    e.preventDefault();
+    API.POST(API.ENDPOINTS.getAllBrands, formData, API.getHeaders())
+      .then(({ data }) => {
+        console.log(data);
+        navigate('/products/create');
+      })
+      .catch((e) => {
+        if (e.status === 301) {
+          setError(true);
+        }
+        console.log(e);
+      });
+  };
 
   return (
     <section className='createBrand'>
@@ -66,6 +80,7 @@ export default function CreateBrand() {
             />
           </Box>
           <Button type='submit'>Add to the database!</Button>
+          <Button onClick={handleSubmitAndNextAdd}>Next add a product</Button>
         </form>
       </Container>
     </section>

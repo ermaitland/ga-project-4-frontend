@@ -21,7 +21,9 @@ export default function RequestIndex() {
     <section className='RequestIndex'>
       <Container
         maxwith='lg'
-        sx={{ display: 'flex', justifyContent: 'space-around', pt: 10 }}
+        sx={{
+          pt: 10
+        }}
       >
         <Grid container spacing={2}>
           <Grid item xs={12}>

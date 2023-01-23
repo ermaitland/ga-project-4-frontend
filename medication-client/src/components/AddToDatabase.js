@@ -24,7 +24,6 @@ export default function AddToDataBase() {
       sx={{
         display: 'flex',
         flexDirection: 'column'
-        // justifyContent: 'space-between'
       }}
       className='addToDatabase'
     >
@@ -32,19 +31,13 @@ export default function AddToDataBase() {
       <Typography sx={{ fontSize: 20, textAlign: 'center', mt: 10 }}>
         How would you like to contribute?
       </Typography>
-      <Container
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center'
-        }}
-      >
-        <Container sx={{ width: 700, mt: 10, mb: 10 }}>
+      <Container className='buttons'>
+        <Container sx={{ mt: 10, mb: 10, sx: 8 }}>
           <Button onClick={AddABrand} variant='contained' size='large'>
             Add a Brand
           </Button>
         </Container>
-        <Container sx={{ width: 700, mt: 10, mb: 10 }}>
+        <Container sx={{ mt: 10, mb: 10 }}>
           <Button onClick={AddAProduct} variant='contained' size='large'>
             Add a Product
           </Button>

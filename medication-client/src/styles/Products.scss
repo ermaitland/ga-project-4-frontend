@@ -6,7 +6,7 @@
 
 .ProductIndex {
   background-color: #e8e9f3;
-  height: 100%;
+  height: 200vh;
   width: 100%;
   .search {
     padding-top: 10px;
@@ -17,6 +17,7 @@
 }
 .productCard {
   background-color: #ffffff;
+  width: 345px;
 }
 .createProduct {
   background-color: #e8e9f3;

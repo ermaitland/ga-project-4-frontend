@@ -80,7 +80,9 @@ export default function CreateBrand() {
             />
           </Box>
           <Button type='submit'>Add to the database!</Button>
-          <Button onClick={handleSubmitAndNextAdd}>Next add a product</Button>
+          <Button onClick={handleSubmitAndNextAdd} variant='contained'>
+            Next add a product
+          </Button>
         </form>
       </Container>
     </section>

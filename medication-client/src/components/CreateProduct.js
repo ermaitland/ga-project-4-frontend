@@ -98,7 +98,7 @@ export default function CreateProduct() {
         component='p'
         sx={{ textAlign: 'center', pt: 5, pb: 5 }}
       >
-        Please add the missing brands below, all fields must be filled in!
+        Please add the missing product below, all fields must be filled in!
       </Typography>
       <Container
         maxWidth='lg'

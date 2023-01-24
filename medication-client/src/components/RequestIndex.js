@@ -34,6 +34,7 @@ export default function RequestIndex() {
                     key={request.id}
                     product={request?.products?.name}
                     text={request?.text}
+                    id={request?.id}
                   />{' '}
                 </Grid>
               ))}

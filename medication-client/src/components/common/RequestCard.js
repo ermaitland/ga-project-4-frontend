@@ -1,15 +1,16 @@
-import { Box, Card, CardContent, Typography } from '@mui/material';
-import Checkbox from '@mui/material/Checkbox';
+import { Box, Card, CardContent, Typography, Button } from '@mui/material';
 import { Container } from '@mui/system';
-import { useState } from 'react';
+import { API } from '../../lib/api';
 import '../../styles/Request.scss';
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export default function RequestCard({ product, text }) {
-  const [checked, setChecked] = useState(false);
-
-  const handleDoneChange = (event) => {
-    setChecked(event.target.checked);
+export default function RequestCard({ product, text, id }) {
+  const handleDelete = () => {
+    API.DELETE(API.ENDPOINTS.deleteRequests(id), API.getHeaders())
+      .then(() => {
+        console.log('deleted successfully');
+        window.location.reload();
+      })
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -23,7 +24,7 @@ export default function RequestCard({ product, text }) {
           }}
           className='requestContainer'
         >
-          <div>
+          <div className='content'>
             <Container
               sx={{
                 flex: '1 0 auto',
@@ -40,14 +41,10 @@ export default function RequestCard({ product, text }) {
             </Container>{' '}
           </div>
           <Container>
-            <form>
-              <Checkbox
-                {...label}
-                checked={checked}
-                onChange={handleDoneChange}
-                inputProps={{ 'aria-label': 'controlled' }}
-              />
-            </form>
+            <Button onClick={handleDelete} variant='contained'>
+              {' '}
+              Delete{' '}
+            </Button>
           </Container>
         </CardContent>
       </Box>

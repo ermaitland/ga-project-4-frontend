@@ -14,6 +14,8 @@ import Brand from './components/Brand';
 import CreateBrand from './components/CreateBrand';
 import CategoryIndex from './components/CategoryIndex';
 import AddToDataBase from './components/AddToDatabase';
+import MyMedsIndex from './components/MyMedsIndex';
+import AddMedicationsToWatchlist from './components/AddMedicationsToWatchlist';
 import FAQs from './components/FAQs';
 import './styles/App.css';
 
@@ -29,6 +31,8 @@ function App() {
         <Route path='/products/create' element={<CreateProduct />} />
         <Route path='/editProducts/:id' element={<EditProduct />} />
         <Route path='/products/:id' element={<Product />} />
+        <Route path='/myMeds/:userId' element={<MyMedsIndex />} />
+        <Route path='/addToMyMeds' element={<AddMedicationsToWatchlist />} />
         <Route path='/brands' element={<BrandIndex />} />
         <Route path='/brands/create' element={<CreateBrand />} />
         <Route path='/brands/:id' element={<Brand />} />

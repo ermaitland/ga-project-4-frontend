@@ -9,6 +9,8 @@ const ENDPOINTS = {
   getSingleBrand: (id) => `/api/brands/${id}/`,
   login: '/api/auth/login/',
   register: '/api/auth/register/',
+  medsList: (id) => `/api/auth/requests/${id}/`,
+  addToMeds: 'api/myMeds/',
   allRequests: '/api/requests/',
   deleteRequests: (id) => `/api/requests/${id}/`,
   createRequest: '/api/requests/create/',

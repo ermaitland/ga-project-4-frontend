@@ -26,6 +26,7 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { AUTH } from '../lib/auth';
@@ -91,6 +92,8 @@ export default function Navbar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const userId = AUTH.id();
 
   const logout = () => {
     AUTH.logout();
@@ -245,6 +248,24 @@ export default function Navbar() {
                       </ListItemIcon>
                       <ListItemText sx={{ color: '#003459' }}>
                         Contribute to the Database
+                      </ListItemText>
+                    </ListItemButton>
+                  </Link>
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <Link
+                    to={`/myMeds/${userId}`}
+                    onClick={handleDrawerClose}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <MedicalInformationIcon sx={{ color: '#003459' }} />
+                      </ListItemIcon>
+                      <ListItemText sx={{ color: '#003459' }}>
+                        Medication Tracker
                       </ListItemText>
                     </ListItemButton>
                   </Link>

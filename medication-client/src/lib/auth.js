@@ -29,6 +29,9 @@ const isOwner = (objectId) => objectId === getPayload().userId;
 const isSuperuser = () => {
   return getPayload().is_staff;
 };
+const id = () => {
+  return getPayload().sub;
+};
 
 export const AUTH = {
   setToken,
@@ -36,5 +39,6 @@ export const AUTH = {
   getPayload,
   logout,
   isOwner,
-  isSuperuser
+  isSuperuser,
+  id
 };

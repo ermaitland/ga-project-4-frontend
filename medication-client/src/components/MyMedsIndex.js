@@ -6,7 +6,7 @@ import '../styles/myMeds.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 
-export default function ProductIndex() {
+export default function MyMedsIndex() {
   const navigate = useNavigate();
   const { userId } = useParams();
   const [myMeds, setMyMeds] = useState([]);
@@ -17,10 +17,11 @@ export default function ProductIndex() {
         setMyMeds(data.my_meds);
         console.log(data.my_meds[0].products);
       })
-      .catch(({ message, responce }) => console.log(message, responce));
+      .catch(({ message, response }) => console.log(message, response));
   }, [userId]);
 
   const navigateToAdd = () => navigate('/addToMyMeds');
+  const navigateToLetter = () => navigate('letter');
 
   return (
     <section className='MyMedsIndex'>
@@ -30,6 +31,10 @@ export default function ProductIndex() {
       <Button onClick={navigateToAdd} sx={{ pb: 5 }}>
         <AddIcon />
         Add Medications to your watch list
+      </Button>
+      <Button onClick={navigateToLetter} sx={{ pb: 5 }}>
+        <AddIcon />
+        Need a letter?
       </Button>
       {!myMeds.length && (
         <Typography>

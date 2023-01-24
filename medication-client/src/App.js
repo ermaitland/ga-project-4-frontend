@@ -18,6 +18,7 @@ import MyMedsIndex from './components/MyMedsIndex';
 import AddMedicationsToWatchlist from './components/AddMedicationsToWatchlist';
 import FAQs from './components/FAQs';
 import './styles/App.css';
+import Letter from './components/Letter';
 
 window.Buffer = window.Buffer || require('buffer').Buffer;
 
@@ -43,6 +44,7 @@ function App() {
         <Route path='/faqs' element={<FAQs />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/letter/:userId' element={<Letter />} />
       </Routes>
     </Router>
   );

@@ -8,11 +8,16 @@ import {
   Collapse,
   IconButton,
   Typography,
-  CardActionArea
+  CardActionArea,
+  Button
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AUTH } from '../../lib/auth';
+import { API } from '../../lib/api';
 import '../../styles/Products.scss';
 
 const ExpandMore = styled((props) => {
@@ -38,9 +43,34 @@ export default function ProductCard({
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
   const navigateToProduct = () => navigate(`/products/${id}`);
+  const [formData, setFormData] = useState({});
+  const [checked, setChecked] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setChecked(true);
+  };
+
+  const data = {
+    products: [id],
+    owner: AUTH.getPayload().sub
+  };
+
+  const handleFavorites = (e) => {
+    e.preventDefault();
+    API.PUT(API.ENDPOINTS.addToMeds, data, API.getHeaders())
+      .then(({ data }) => {
+        console.log(data);
+        alert(`You have added ${name} to your medical tracker`);
+        <FavoriteIcon />;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
@@ -56,6 +86,19 @@ export default function ProductCard({
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
+          <form onSubmit={handleFavorites}>
+            <Button
+              onClick={handleChange}
+              type='submit'
+              sx={{ color: '#007ea7' }}
+            >
+              {checked ? (
+                <FavoriteIcon />
+              ) : (
+                <FavoriteBorderIcon valule={id} className='FaveIcon' />
+              )}
+            </Button>
+          </form>
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}

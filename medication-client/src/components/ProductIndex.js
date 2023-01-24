@@ -32,6 +32,10 @@ export default function ProductIndex() {
     setProducts(filteredProducts);
   }, [filteredProducts]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className='ProductIndex'>
       <Box sx={{ flexGrow: 1, display: { sx: 8, sm: 'flex' } }}>

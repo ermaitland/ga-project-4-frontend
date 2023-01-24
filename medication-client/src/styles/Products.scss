@@ -6,7 +6,7 @@
 
 .ProductIndex {
   background-color: #e8e9f3;
-  height: 300vh;
+  height: 200vh;
   width: 100%;
   .search {
     padding-top: 10px;
@@ -54,6 +54,7 @@
 @media only screen and (max-width: 400px) {
   .ProductIndex {
     width: 400px;
+    height: 200vh;
     .search {
       width: 350px;
       margin-left: 75px;

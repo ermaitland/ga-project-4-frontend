@@ -27,6 +27,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
+import EmailIcon from '@mui/icons-material/Email';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { AUTH } from '../lib/auth';
@@ -248,6 +249,24 @@ export default function Navbar() {
                       </ListItemIcon>
                       <ListItemText sx={{ color: '#003459' }}>
                         Contribute to the Database
+                      </ListItemText>
+                    </ListItemButton>
+                  </Link>
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <Link
+                    to={`/letter/${userId}`}
+                    onClick={handleDrawerClose}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <EmailIcon sx={{ color: '#003459' }} />
+                      </ListItemIcon>
+                      <ListItemText sx={{ color: '#003459' }}>
+                        Medication Letter
                       </ListItemText>
                     </ListItemButton>
                   </Link>

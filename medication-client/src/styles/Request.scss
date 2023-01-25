@@ -1,0 +1,56 @@
+.RequestIndex {
+  background-color: #e8e9f3;
+  height: 100vh;
+  .requestCard {
+    margin-bottom: 5px;
+    width: 1000px;
+  }
+}
+.requestContainer {
+  .content {
+    width: 1930px;
+  }
+}
+.createRequest {
+  background-image: url('https://thehill.com/wp-content/uploads/sites/2/2022/08/CA_depression_08222022istock.jpg?strip=1');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 400px) {
+  .RequestIndex {
+    width: 400px;
+    height: 100%;
+    .requestCard {
+      width: 370px;
+    }
+  }
+  .requestContainer {
+    width: 200px;
+    height: 200px;
+  }
+  .createRequest {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .RquestIndex {
+    width: 770px;
+    .requestCard {
+      width: 400px;
+      padding-left: 12px;
+    }
+  }
+  .requestContainer {
+    width: 850px;
+  }
+  .createRequest {
+    width: 770px;
+  }
+}

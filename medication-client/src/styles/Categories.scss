@@ -1,0 +1,42 @@
+.Categories {
+  // background-color: #e8e9f3;
+  background-image: url('https://thehill.com/wp-content/uploads/sites/2/2022/08/CA_depression_08222022istock.jpg?strip=1');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+  height: 100vh;
+  .card {
+    width: 1150;
+  }
+  .legalCategory {
+    width: 1000;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .Categories {
+    width: 400px;
+    background-color: #e8e9f3;
+    height: 200vh;
+    background-image: none;
+    .legalCategory {
+      width: 75vh;
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .Categories {
+    width: 770px;
+    background-image: none;
+    background-color: #e8e9f3;
+    height: 100vh;
+    width: 100vw;
+    .card {
+      width: 750;
+    }
+    .legalCategory {
+      width: 200;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.BrandIndex {
+  background-color: #e8e9f3;
+  height: 120vh;
+  width: 100vw;
+  position: absolute;
+  padding-top: 10px;
+}
+.brandCard {
+  height: 150px;
+  width: 1000;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 3vw;
+  .cardContent {
+    background-color: #003459;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+  }
+  .indexImage {
+    height: 150px;
+    width: 150px;
+  }
+}
+.createBrand {
+  background-color: #e8e9f3;
+  height: 100vh;
+}
+.singleBrand {
+  background-color: #e8e9f3;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 100px;
+
+  .image {
+    width: 210px;
+    height: 240px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
+  .text {
+    padding-left: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .BrandIndex {
+    width: 400px;
+  }
+  .brandCard {
+    width: 325px;
+    height: 100px;
+    .indexImage {
+      height: 50px;
+      width: 50px;
+    }
+  }
+  .singleBrand {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    .image {
+      display: none;
+    }
+  }
+}

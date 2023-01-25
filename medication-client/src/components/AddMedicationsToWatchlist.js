@@ -46,7 +46,7 @@ export default function AddMedicationsToWatchlist() {
         if (e.status === 301) {
           setError(true);
         }
-        console.log(e);
+        console.log(error);
       });
   };
 
@@ -74,7 +74,7 @@ export default function AddMedicationsToWatchlist() {
                 <MenuItem value=''>None</MenuItem>
                 {products?.map((product) => (
                   <MenuItem value={product.id} key={product.id}>
-                    {product.name}
+                    {product.name} - {product.dose}
                   </MenuItem>
                 ))}
               </Select>

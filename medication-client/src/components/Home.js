@@ -37,7 +37,7 @@ export default function Home() {
                 console.log('All strings were deleted');
               })
               .pauseFor(1000)
-              .typeString('MediCheck.')
+              .typeString('MediChecker.')
               .callFunction(() => {
                 console.log('String typed out!');
               })
@@ -45,7 +45,7 @@ export default function Home() {
           }}
         />
       </Box>
-      <Typography sx={{ pb: 0, mb: 0 }}>Find out more</Typography>
+      <Typography sx={{ pb: 0, mb: 0, fontSize: 20 }}>Find out more</Typography>
       <ExpandCircleDownIcon />
       <VerticalTimeline lineColor='#003459' animate='true'>
         <VerticalTimelineElement

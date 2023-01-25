@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { API } from '../lib/api';
-import ProductCard from './common/ProductCard';
+import MedListCard from './common/MedListCard';
 import { Button, Container, Grid, Typography } from '@mui/material';
 import '../styles/myMeds.scss';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -15,13 +15,12 @@ export default function MyMedsIndex() {
     API.GET(API.ENDPOINTS.medsList(userId))
       .then(({ data }) => {
         setMyMeds(data.my_meds);
-        console.log(data.my_meds[0].products);
       })
       .catch(({ message, response }) => console.log(message, response));
   }, [userId]);
 
   const navigateToAdd = () => navigate('/addToMyMeds');
-  const navigateToLetter = () => navigate('letter');
+  const navigateToLetter = () => navigate(`/letter/${userId}`);
 
   return (
     <section className='MyMedsIndex'>
@@ -36,113 +35,117 @@ export default function MyMedsIndex() {
         <AddIcon />
         Need a letter?
       </Button>
-      {!myMeds.length && (
+      {!myMeds.length ? (
         <Typography>
           You have no medications in your list yet! Get adding to keep track of
           them
         </Typography>
-      )}
-      <Container maxwith='lg' sx={{ display: 'flex', flexDirection: 'column' }}>
+      ) : (
         <Container
           maxwith='lg'
-          sx={{ display: 'flex', justifyContent: 'space-around' }}
+          sx={{ display: 'flex', flexDirection: 'column' }}
         >
-          <Grid container spacing={2}>
-            <Grid item xs={8} sm={8} md={12}>
-              <Grid container spacing={2}>
-                {myMeds[0]?.products?.map((medication) => (
-                  <Grid item xs={12} sm={12} md={4} key={medication?.id}>
-                    <ProductCard
-                      key={medication?.id}
-                      id={medication?.id}
-                      name={medication?.name}
-                      brand={medication?.brand?.name}
-                      image={medication?.image}
-                      dose={medication?.dose}
-                      side_effects={medication?.side_effects}
-                      primary_use={medication?.primary_use}
-                    />
-                  </Grid>
-                ))}
+          <Container
+            maxwith='lg'
+            sx={{ display: 'flex', justifyContent: 'space-around' }}
+          >
+            <Grid container spacing={2}>
+              <Grid item xs={8} sm={8} md={12}>
+                <Grid container spacing={2}>
+                  {myMeds[0]?.products?.map((medication) => (
+                    <Grid item xs={12} sm={12} md={4} key={medication?.id}>
+                      <MedListCard
+                        key={medication?.id}
+                        id={medication?.id}
+                        name={medication?.name}
+                        brand={medication?.brand?.name}
+                        image={medication?.image}
+                        dose={medication?.dose}
+                        side_effects={medication?.side_effects}
+                        primary_use={medication?.primary_use}
+                      />
+                    </Grid>
+                  ))}
 
-                {myMeds[1]?.products?.map((medication) => (
-                  <Grid item xs={12} sm={12} md={4} key={medication?.id}>
-                    <ProductCard
-                      key={medication?.id}
-                      id={medication?.id}
-                      name={medication?.name}
-                      brand={medication?.brand?.name}
-                      image={medication?.image}
-                      dose={medication?.dose}
-                      side_effects={medication?.side_effects}
-                      primary_use={medication?.primary_use}
-                    />
-                  </Grid>
-                ))}
+                  {myMeds[1]?.products?.map((medication) => (
+                    <Grid item xs={12} sm={12} md={4} key={medication?.id}>
+                      <MedListCard
+                        key={medication?.id}
+                        id={medication?.id}
+                        name={medication?.name}
+                        brand={medication?.brand?.name}
+                        image={medication?.image}
+                        dose={medication?.dose}
+                        side_effects={medication?.side_effects}
+                        primary_use={medication?.primary_use}
+                      />
+                    </Grid>
+                  ))}
 
-                {myMeds[2]?.products?.map((medication) => (
-                  <Grid item xs={12} sm={12} md={4} key={medication?.id}>
-                    <ProductCard
-                      key={medication?.id}
-                      id={medication?.id}
-                      name={medication?.name}
-                      brand={medication?.brand?.name}
-                      image={medication?.image}
-                      dose={medication?.dose}
-                      side_effects={medication?.side_effects}
-                      primary_use={medication?.primary_use}
-                    />
-                  </Grid>
-                ))}
+                  {myMeds[2]?.products?.map((medication) => (
+                    <Grid item xs={12} sm={12} md={4} key={medication?.id}>
+                      <MedListCard
+                        key={medication?.id}
+                        id={medication?.id}
+                        name={medication?.name}
+                        brand={medication?.brand?.name}
+                        image={medication?.image}
+                        dose={medication?.dose}
+                        side_effects={medication?.side_effects}
+                        primary_use={medication?.primary_use}
+                      />
+                    </Grid>
+                  ))}
 
-                {myMeds[3]?.products?.map((medication) => (
-                  <Grid item xs={12} sm={12} md={4} key={medication?.id}>
-                    <ProductCard
-                      key={medication?.id}
-                      id={medication?.id}
-                      name={medication?.name}
-                      brand={medication?.brand?.name}
-                      image={medication?.image}
-                      dose={medication?.dose}
-                      side_effects={medication?.side_effects}
-                      primary_use={medication?.primary_use}
-                    />
-                  </Grid>
-                ))}
+                  {myMeds[3]?.products?.map((medication) => (
+                    <Grid item xs={12} sm={12} md={4} key={medication?.id}>
+                      <MedListCard
+                        key={medication?.id}
+                        id={medication?.id}
+                        name={medication?.name}
+                        brand={medication?.brand?.name}
+                        image={medication?.image}
+                        dose={medication?.dose}
+                        side_effects={medication?.side_effects}
+                        primary_use={medication?.primary_use}
+                      />
+                    </Grid>
+                  ))}
 
-                {myMeds[4]?.products?.map((medication) => (
-                  <Grid item xs={12} sm={12} md={4} key={medication?.id}>
-                    <ProductCard
-                      key={medication?.id}
-                      id={medication?.id}
-                      name={medication?.name}
-                      brand={medication?.brand?.name}
-                      image={medication?.image}
-                      dose={medication?.dose}
-                      side_effects={medication?.side_effects}
-                      primary_use={medication?.primary_use}
-                    />
-                  </Grid>
-                ))}
-                {myMeds[5]?.products?.map((medication) => (
-                  <Grid item xs={12} sm={12} md={4} key={medication?.id}>
-                    <ProductCard
-                      key={medication?.id}
-                      id={medication?.id}
-                      name={medication?.name}
-                      brand={medication?.brand?.name}
-                      image={medication?.image}
-                      dose={medication?.dose}
-                      side_effects={medication?.side_effects}
-                      primary_use={medication?.primary_use}
-                    />
-                  </Grid>
-                ))}
+                  {myMeds[4]?.products?.map((medication) => (
+                    <Grid item xs={12} sm={12} md={4} key={medication?.id}>
+                      <MedListCard
+                        key={medication?.id}
+                        id={medication?.id}
+                        name={medication?.name}
+                        brand={medication?.brand?.name}
+                        image={medication?.image}
+                        dose={medication?.dose}
+                        side_effects={medication?.side_effects}
+                        primary_use={medication?.primary_use}
+                      />
+                    </Grid>
+                  ))}
+                  {myMeds[5]?.products?.map((medication) => (
+                    <Grid item xs={12} sm={12} md={4} key={medication?.id}>
+                      <MedListCard
+                        key={medication?.id}
+                        id={medication?.id}
+                        name={medication?.name}
+                        brand={medication?.brand?.name}
+                        image={medication?.image}
+                        dose={medication?.dose}
+                        side_effects={medication?.side_effects}
+                        primary_use={medication?.primary_use}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
+          </Container>
         </Container>
-      </Container>
+      )}
     </section>
   );
 }

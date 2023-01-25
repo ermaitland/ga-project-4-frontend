@@ -11,6 +11,7 @@ const ENDPOINTS = {
   register: '/api/auth/register/',
   medsList: (id) => `/api/auth/requests/${id}/`,
   addToMeds: 'api/myMeds/',
+  deleteFromMedList: (id) => `api/myMeds/${id}`,
   allRequests: '/api/requests/',
   deleteRequests: (id) => `/api/requests/${id}/`,
   createRequest: '/api/requests/create/',

@@ -16,6 +16,9 @@
 .Letter {
   background-color: #e8e9f3;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 @media only screen and (max-width: 400px) {
@@ -32,6 +35,12 @@
     width: 400px;
     height: 300vh;
   }
+  .Letter {
+    width: 400px;
+    font-size: 15px;
+    padding-right: 15px;
+    padding-left: 10px;
+  }
 }
 
 @media only screen and (max-width: 770px) {
@@ -46,5 +55,11 @@
   .addToList {
     width: 770px;
     height: 200vh;
+  }
+  .Letter {
+    width: 770px;
+    font-size: 18px;
+    padding-right: 15px;
+    padding-left: 10px;
   }
 }

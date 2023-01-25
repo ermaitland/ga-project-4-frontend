@@ -8,17 +8,11 @@ import {
   Collapse,
   IconButton,
   Typography,
-  CardActionArea,
-  Button
+  CardActionArea
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AUTH } from '../../lib/auth';
-import { API } from '../../lib/api';
-import { useAuthenticated } from '../../hooks/useAuthenticated';
 import '../../styles/Products.scss';
 
 const ExpandMore = styled((props) => {
@@ -32,7 +26,7 @@ const ExpandMore = styled((props) => {
   })
 }));
 
-export default function ProductCard({
+export default function MedListCard({
   name,
   brand,
   image,
@@ -44,34 +38,9 @@ export default function ProductCard({
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
   const navigateToProduct = () => navigate(`/products/${id}`);
-  const [formData, setFormData] = useState({});
-  const [checked, setChecked] = useState(false);
-  const [isLoggedIn] = useAuthenticated();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setChecked(true);
-  };
-
-  const data = {
-    products: [id],
-    owner: AUTH.getPayload().sub
-  };
-
-  const handleFavorites = (e) => {
-    e.preventDefault();
-    API.PUT(API.ENDPOINTS.addToMeds, data, API.getHeaders())
-      .then(({ data }) => {
-        console.log(data);
-        alert(`You have added ${name} to your medical tracker`);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
   };
 
   return (
@@ -87,21 +56,6 @@ export default function ProductCard({
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          {isLoggedIn && (
-            <form onSubmit={handleFavorites}>
-              <Button
-                onClick={handleChange}
-                type='submit'
-                sx={{ color: '#007ea7' }}
-              >
-                {checked ? (
-                  <FavoriteIcon />
-                ) : (
-                  <FavoriteBorderIcon valule={id} className='FaveIcon' />
-                )}
-              </Button>
-            </form>
-          )}
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}

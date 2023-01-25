@@ -6,11 +6,17 @@ import { Container } from '@mui/system';
 import { Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import '../styles/LoginAndRegister.scss';
+import { useAuthenticated } from '../hooks/useAuthenticated';
 
 export default function Login() {
   const [formFields, setFormFields] = useState({ username: '', password: '' });
   const [error, setError] = useState({ username: false, password: false });
   const navigate = useNavigate();
+  const [isLoggedIn] = useAuthenticated();
+
+  if (isLoggedIn) {
+    navigate('/');
+  }
 
   const handleChange = (e) => {
     setFormFields({ ...formFields, [e.target.name]: e.target.value });

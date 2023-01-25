@@ -3,12 +3,18 @@ import { Container } from '@mui/system';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuthenticated } from '../hooks/useAuthenticated';
 import { API } from '../lib/api';
 import '../styles/Products.scss';
 
 export default function AddToDataBase() {
   const navigate = useNavigate();
   const [brands, setBrands] = useState([]);
+  const [isLoggedIn] = useAuthenticated();
+
+  if (!isLoggedIn) {
+    navigate('/');
+  }
 
   useEffect(() => {
     API.GET(API.ENDPOINTS.getAllBrands)

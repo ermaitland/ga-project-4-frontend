@@ -5,11 +5,17 @@ import { Button, Container, Grid, Typography } from '@mui/material';
 import '../styles/myMeds.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
+import { useAuthenticated } from '../hooks/useAuthenticated';
 
 export default function MyMedsIndex() {
   const navigate = useNavigate();
   const { userId } = useParams();
   const [myMeds, setMyMeds] = useState([]);
+  const [isLoggedIn] = useAuthenticated();
+
+  if (!isLoggedIn) {
+    navigate('/products');
+  }
 
   useEffect(() => {
     API.GET(API.ENDPOINTS.medsList(userId))

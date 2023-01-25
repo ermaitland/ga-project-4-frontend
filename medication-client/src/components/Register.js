@@ -13,7 +13,8 @@ export default function Register() {
     password: '',
     password_confirmation: '',
     username: '',
-    requests: ''
+    requests: '',
+    my_meds: ''
   });
   const navigate = useNavigate();
   const [error, setError] = useState(false);
@@ -25,7 +26,11 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await API.POST(API.ENDPOINTS.register, { ...formFields, requests: [] });
+      await API.POST(API.ENDPOINTS.register, {
+        ...formFields,
+        requests: [],
+        my_meds: []
+      });
 
       const loginData = await API.POST(API.ENDPOINTS.login, {
         username: formFields.username,

@@ -275,7 +275,7 @@ export default function Navbar() {
               <ListItem disablePadding>
                 <ListItemButton>
                   <Link
-                    to={`/myMeds/${userId}`}
+                    to={`/${userId}`}
                     onClick={handleDrawerClose}
                     style={{ textDecoration: 'none' }}
                   >

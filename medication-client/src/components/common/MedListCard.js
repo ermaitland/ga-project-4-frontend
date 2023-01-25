@@ -8,11 +8,14 @@ import {
   Collapse,
   IconButton,
   Typography,
-  CardActionArea
+  CardActionArea,
+  Button
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API } from '../../lib/api';
 import '../../styles/Products.scss';
 
 const ExpandMore = styled((props) => {
@@ -33,7 +36,8 @@ export default function MedListCard({
   dose,
   side_effects,
   primary_use,
-  id
+  id,
+  medication_id
 }) {
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
@@ -41,6 +45,15 @@ export default function MedListCard({
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleDelete = () => {
+    API.DELETE(API.ENDPOINTS.deleteFromMedList(medication_id), API.getHeaders())
+      .then(() => {
+        console.log('deleted successfully');
+        window.location.reload();
+      })
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -56,6 +69,9 @@ export default function MedListCard({
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
+          <Button onClick={handleDelete} sx={{ color: '#003459' }}>
+            <DeleteForeverIcon />
+          </Button>
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}

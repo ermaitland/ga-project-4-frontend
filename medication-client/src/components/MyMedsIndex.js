@@ -35,6 +35,7 @@ export default function MyMedsIndex() {
         <AddIcon />
         Need a letter?
       </Button>
+
       {!myMeds.length ? (
         <Typography>
           You have no medications in your list yet! Get adding to keep track of
@@ -63,6 +64,7 @@ export default function MyMedsIndex() {
                         dose={medication?.dose}
                         side_effects={medication?.side_effects}
                         primary_use={medication?.primary_use}
+                        medication_id={myMeds[0]?.id}
                       />
                     </Grid>
                   ))}

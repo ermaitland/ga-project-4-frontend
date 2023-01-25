@@ -5,6 +5,7 @@ import { Button, Container, Grid, Typography } from '@mui/material';
 import '../styles/myMeds.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
+import EmailIcon from '@mui/icons-material/Email';
 import { useAuthenticated } from '../hooks/useAuthenticated';
 
 export default function MyMedsIndex() {
@@ -30,16 +31,26 @@ export default function MyMedsIndex() {
 
   return (
     <section className='MyMedsIndex'>
-      <Typography sx={{ mt: 0, mb: 3, fontSize: 20, textAlign: 'center' }}>
+      <Typography
+        sx={{
+          mt: 0,
+          mb: 3,
+          fontSize: 25,
+          textAlign: 'center',
+          color: '#003459'
+        }}
+      >
         The medications on your current list are:
       </Typography>
-      <Button onClick={navigateToAdd} sx={{ pb: 5 }}>
+      <Button onClick={navigateToAdd} sx={{ pb: 2, color: '#007ea7' }}>
         <AddIcon />
-        Add Medications to your watch list
+        <Typography sx={{ pl: 2 }}>
+          Add Medications to your watch list
+        </Typography>
       </Button>
-      <Button onClick={navigateToLetter} sx={{ pb: 5 }}>
-        <AddIcon />
-        Need a letter?
+      <Button onClick={navigateToLetter} sx={{ pb: 5, color: '#00a7e1' }}>
+        <EmailIcon />
+        <Typography sx={{ pl: 2 }}>Need a letter?</Typography>
       </Button>
 
       {!myMeds.length ? (

@@ -26,9 +26,9 @@ export default function Letter() {
         className='letterBox'
       >
         {!myMeds.length ? (
-          <Typography>
-            You need to add some medications to your tracker to generate a
-            medication letter...
+          <Typography sx={{ color: '#003459' }}>
+            Oops...You need to add some medications to your tracker to generate
+            a medication letter...
           </Typography>
         ) : (
           <Typography sx={{ mb: 3, fontSize: 20, align: 'center', width: 750 }}>

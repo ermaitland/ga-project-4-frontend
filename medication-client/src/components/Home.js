@@ -31,7 +31,7 @@ export default function Home() {
               .callFunction(() => {
                 console.log('String typed out!');
               })
-              .pauseFor(2500)
+              .pauseFor(2000)
               .deleteAll()
               .callFunction(() => {
                 console.log('All strings were deleted');

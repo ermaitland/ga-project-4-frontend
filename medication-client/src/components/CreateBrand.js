@@ -46,7 +46,7 @@ export default function CreateBrand() {
       <Typography
         variant='h4'
         component='p'
-        sx={{ textAlign: 'center', pt: 10, pb: 15 }}
+        sx={{ textAlign: 'center', pt: 10, pb: 15, color: '#003459' }}
       >
         See a manufacturer thats missing? Please add them below!
       </Typography>
@@ -79,10 +79,10 @@ export default function CreateBrand() {
               sx={{ width: 350 }}
             />
           </Box>
-          <Button type='submit'>Add to the database!</Button>
-          <Button onClick={handleSubmitAndNextAdd} variant='contained'>
-            Next add a product
+          <Button type='submit' variant='contained'>
+            Add to the database!
           </Button>
+          <Button onClick={handleSubmitAndNextAdd}>Add a product too!</Button>
         </form>
       </Container>
     </section>

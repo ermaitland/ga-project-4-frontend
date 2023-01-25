@@ -96,7 +96,7 @@ export default function CreateProduct() {
       <Typography
         variant='h4'
         component='p'
-        sx={{ textAlign: 'center', pt: 5, pb: 5 }}
+        sx={{ textAlign: 'center', pt: 5, pb: 5, color: '#003459' }}
       >
         Please add the missing product below, all fields must be filled in!
       </Typography>

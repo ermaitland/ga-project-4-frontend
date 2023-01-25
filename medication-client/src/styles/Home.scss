@@ -26,3 +26,18 @@
   color: #007ea7;
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+@media only screen and (max-width: 400px) {
+  .Home {
+    width: 400px;
+  }
+  .nav-responsive {
+    width: 400px;
+    .top_nav {
+      width: 800px;
+      .title {
+        display: none;
+      }
+    }
+  }
+}

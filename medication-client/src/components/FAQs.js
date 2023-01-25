@@ -16,8 +16,6 @@ export default function FAQs() {
       .catch((e) => console.log(e));
   }, []);
 
-  console.log(FAQs);
-
   return (
     <section className='FAQsIndex'>
       <Container maxwith='lg' sx={{ display: 'flex', flexDirection: 'column' }}>

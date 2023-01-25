@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { API } from '../lib/api';
-// import { useAuthenticated } from '../hooks/useAuthenticated';
 import { AUTH } from '../lib/auth';
 import {
   Container,
@@ -14,7 +13,6 @@ import {
 import '../styles/Products.scss';
 
 export default function Product() {
-  // const [isLoggedIn] = useAuthenticated();
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState(null);
   const navigate = useNavigate();

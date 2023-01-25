@@ -137,7 +137,6 @@ export default function Navbar() {
                     <ListItemIcon>
                       <LogoutIcon sx={{ pr: 0, color: '#FFFFFF' }} />
                     </ListItemIcon>
-
                     <ListItemText sx={{ pl: 0, color: '#FFFFFF' }}>
                       Logout
                     </ListItemText>
@@ -148,7 +147,6 @@ export default function Navbar() {
           )}
         </Toolbar>
       </AppBar>
-
       <Drawer
         sx={{
           width: drawerWidth,
@@ -383,7 +381,6 @@ export default function Navbar() {
           </ListItem>
         </List>
       </Drawer>
-
       <Main open={open}>
         <DrawerHeader />
       </Main>

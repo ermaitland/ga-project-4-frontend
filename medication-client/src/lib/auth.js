@@ -25,7 +25,7 @@ const getPayload = () => {
   return JSON.parse(Buffer.from(parts[1], 'base64'));
 };
 
-const isOwner = (objectId) => objectId === getPayload().userId;
+const isOwner = (objectId) => objectId === getPayload().sub;
 const isSuperuser = () => {
   return getPayload().is_staff;
 };

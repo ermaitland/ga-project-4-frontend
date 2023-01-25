@@ -21,7 +21,10 @@ export default function Letter() {
 
   return (
     <section className='Letter'>
-      <Box sx={{ border: '3px #00a7e1 solid', mt: 10, p: 5 }}>
+      <Box
+        sx={{ border: '3px #00a7e1 solid', mt: 10, p: 5 }}
+        className='letterBox'
+      >
         {!myMeds.length ? (
           <Typography>
             You need to add some medications to your tracker to generate a
@@ -33,8 +36,10 @@ export default function Letter() {
             <p>
               We can confirm{' '}
               {userInfo.first_name ? userInfo.first_name : '________'} is a user
-              of MediChecker, a medical information company. Their GP can
-              confirm that{' '}
+              of MediChecker, a medical information
+            </p>
+            <p>
+              company. Their GP can confirm that{' '}
               {userInfo.first_name ? userInfo.first_name : '________'} is
               currently taking:{' '}
             </p>
@@ -71,8 +76,9 @@ export default function Letter() {
             <p>Signed: _____________ </p>
             <p>
               If there are any adverse side effects you should immediately
-              contact a Doctor, call 111 or go to the hospital.
-            </p>
+              contact a
+            </p>{' '}
+            <p>Doctor, call 111 or go to the hospital.</p>
             <p>
               {userInfo.first_name ? userInfo.first_name : 'They'} may be
               carrying these medications with them for their health.

@@ -40,7 +40,7 @@ export default function AddMedicationsToWatchlist() {
     API.PUT(API.ENDPOINTS.addToMeds, data, API.getHeaders())
       .then(({ data }) => {
         console.log(data);
-        navigate(`/myMeds/${AUTH.getPayload().sub}`);
+        navigate(`/${AUTH.getPayload().sub}`);
       })
       .catch((e) => {
         if (e.status === 301) {

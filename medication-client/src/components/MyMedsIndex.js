@@ -80,6 +80,7 @@ export default function MyMedsIndex() {
                         dose={medication?.dose}
                         side_effects={medication?.side_effects}
                         primary_use={medication?.primary_use}
+                        medication_id={myMeds[1]?.id}
                       />
                     </Grid>
                   ))}
@@ -95,6 +96,7 @@ export default function MyMedsIndex() {
                         dose={medication?.dose}
                         side_effects={medication?.side_effects}
                         primary_use={medication?.primary_use}
+                        medication_id={myMeds[2]?.id}
                       />
                     </Grid>
                   ))}
@@ -110,6 +112,7 @@ export default function MyMedsIndex() {
                         dose={medication?.dose}
                         side_effects={medication?.side_effects}
                         primary_use={medication?.primary_use}
+                        medication_id={myMeds[3]?.id}
                       />
                     </Grid>
                   ))}
@@ -125,6 +128,7 @@ export default function MyMedsIndex() {
                         dose={medication?.dose}
                         side_effects={medication?.side_effects}
                         primary_use={medication?.primary_use}
+                        medication_id={myMeds[4]?.id}
                       />
                     </Grid>
                   ))}
@@ -139,6 +143,7 @@ export default function MyMedsIndex() {
                         dose={medication?.dose}
                         side_effects={medication?.side_effects}
                         primary_use={medication?.primary_use}
+                        medication_id={myMeds[5]?.id}
                       />
                     </Grid>
                   ))}

@@ -19,7 +19,7 @@ export default function MyMedsIndex() {
   }
 
   useEffect(() => {
-    API.GET(API.ENDPOINTS.medsList(userId))
+    API.POST(API.ENDPOINTS.medsList(userId), {}, API.getHeaders())
       .then(({ data }) => {
         setMyMeds(data.my_meds);
       })

@@ -11,7 +11,7 @@ export default function Letter() {
   const [myMeds, setMyMeds] = useState([]);
 
   useEffect(() => {
-    API.GET(API.ENDPOINTS.medsList(userId))
+    API.POST(API.ENDPOINTS.medsList(userId), {}, API.getHeaders())
       .then(({ data }) => {
         setUserInfo(data);
         setMyMeds(data.my_meds);

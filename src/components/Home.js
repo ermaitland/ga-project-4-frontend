@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   VerticalTimeline,
   VerticalTimelineElement
-} from 'react-vertical-timeline-component';
+} from 'react-vertical-timeline-component/dist-modules';
 import 'react-vertical-timeline-component/style.min.css';
 import { Typography, Button } from '@mui/material';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';

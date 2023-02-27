@@ -1,5 +1,3 @@
-# ga-project-4-backend
-
 # Description
 
 This was the fourth project in the General Assembly Software Engineering Immersive. For this project I had one week to create a full stack app. We had the choice to go solo or in a group, and I chose to try on my own. I wanted to push myself and see what I could do after three months of learning, and I had only done one project on my own in the past. The project had a Django back-end, using Postgres, and the front-end was a React.js app. I decided to go for a passion of mine, medical tech - and create a medical information and tracker website.
